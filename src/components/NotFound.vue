@@ -1,3 +1,5 @@
 <template>
-  <section></section>
+  <section>
+    Not Found
+  </section>
 </template>

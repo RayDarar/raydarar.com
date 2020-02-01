@@ -1,3 +1,5 @@
 <template>
-  <section></section>
+  <section>
+    This will be a Timelapse section
+  </section>
 </template>

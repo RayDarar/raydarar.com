@@ -1,10 +1,11 @@
 {
   "name": "ryspekov.kz",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "publish": "git add dist/ & git commit -m 'production publish' & git push origin"
   },
   "dependencies": {
     "core-js": "^3.4.4",
