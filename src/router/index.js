@@ -25,7 +25,7 @@ const router = new VueRouter({
     },
     {
       path: "/timelapse",
-      component: () => import("@/components/timelapse")
+      component: () => import("@/components/Timelapse")
     }
   ]
 });
