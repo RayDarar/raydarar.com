@@ -1,0 +1,26 @@
+{
+  "name": "ryspekov.kz",
+  "version": "1.0.0",
+  "description": "Personal web page",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RayDarar/ryspekov.kz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RayDarar/ryspekov.kz/issues"
+  },
+  "homepage": "https://github.com/RayDarar/ryspekov.kz#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}

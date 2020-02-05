@@ -1,5 +1,5 @@
 {
-  "name": "ryspekov.kz",
+  "name": "ryspekov.kz_front-end",
   "version": "0.3.0",
   "private": true,
   "scripts": {
@@ -24,5 +24,8 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "engines": {
+    "node": "12.x"
+  }
 }
