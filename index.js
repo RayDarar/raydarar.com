@@ -1,13 +1,13 @@
 const express = require("express");
-const path = require("path");
+const join = require("path").join;
+const history = require("connect-history-api-fallback");
 
 const PORT = process.env.PORT || 3000;
-
-
+const STATIC = join(__dirname, "public");
 
 express()
-  .get('/*', (req, res) => res.sendFile('index.html'))
-  .use(express.static(path.join(__dirname, "public")))
+  .use(history())
+  .use(express.static(STATIC))
   .listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });
