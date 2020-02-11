@@ -1,15 +1,13 @@
 <template>
   <article class="root">
     <navigation class="root__nav"></navigation>
-    <router-view
-      :class="{ root__component: !isWrapped, root__component_wrapped: isWrapped }"
-      @wrap="isWrapped = !isWrapped"
-    ></router-view>
+    <router-view class="root__component" @wrap="wrap" ref="sect"></router-view>
   </article>
 </template>
 
 <script>
 import Nav from "@/components/Navigation";
+import velocity from "velocity-animate";
 
 export default {
   name: "App",
@@ -20,6 +18,35 @@ export default {
     return {
       isWrapped: false
     };
+  },
+  methods: {
+    wrap() {
+      const el = this.$refs.sect.$el;
+
+      if (this.isWrapped) {
+        // unwrap
+        velocity(el, {
+          width: "100%",
+          height: "100%",
+          left: 0,
+          top: 0
+        }, {
+          duration: 250
+        });
+      } else {
+        // wrap
+        velocity(el, {
+          width: "80%",
+          height: "80%",
+          top: "10%",
+          left: "10%"
+        }, {
+          duration: 250
+        });
+      }
+
+      this.isWrapped = !this.isWrapped;
+    }
   }
 };
 </script>
@@ -60,11 +87,6 @@ $navHeight: 10%;
     position: absolute;
     @include def_rect($navLeft, 0, $navWidth, $navHeight);
     z-index: 0;
-  }
-
-  &__component_wrapped {
-    position: absolute;
-    @include def_rect($navLeft, $navHeight, $navWidth, 100% - $navHeight * 2);
   }
 
   &__component {
