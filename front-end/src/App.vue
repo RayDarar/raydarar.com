@@ -3,6 +3,7 @@
     <navigation class="root__nav"></navigation>
     <router-view
       :class="{ root__component: !isWrapped, root__component_wrapped: isWrapped }"
+      @wrap="isWrapped = !isWrapped"
     ></router-view>
   </article>
 </template>
@@ -17,7 +18,7 @@ export default {
   },
   data() {
     return {
-      isWrapped: true
+      isWrapped: false
     };
   }
 };
@@ -58,21 +59,26 @@ $navHeight: 10%;
   &__nav {
     position: absolute;
     @include def_rect($navLeft, 0, $navWidth, $navHeight);
-    background-color: red;
     z-index: 0;
   }
 
   &__component_wrapped {
     position: absolute;
     @include def_rect($navLeft, $navHeight, $navWidth, 100% - $navHeight * 2);
-    background-color: green;
   }
 
   &__component {
-    position: absolute;
+    position: relative;
     @include def_rect(0, 0, 100%, 100%);
     z-index: 1;
-    background-color: green;
   }
+}
+
+.menu-icon {
+  position: absolute;
+  right: 3%;
+  top: 3%;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 </style>
