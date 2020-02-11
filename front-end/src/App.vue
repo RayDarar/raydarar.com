@@ -1,7 +1,7 @@
 <template>
   <article class="root">
     <navigation class="root__nav"></navigation>
-    <router-view class="root__component" @wrap="wrap" ref="sect"></router-view>
+    <router-view class="root__component" @wrap="toggleMenu" ref="sect"></router-view>
   </article>
 </template>
 
@@ -20,32 +20,37 @@ export default {
     };
   },
   methods: {
-    wrap() {
+    toggleMenu() {
       const el = this.$refs.sect.$el;
 
-      if (this.isWrapped) {
-        // unwrap
-        velocity(el, {
-          width: "100%",
-          height: "100%",
-          left: 0,
-          top: 0
-        }, {
-          duration: 250
-        });
-      } else {
-        // wrap
-        velocity(el, {
+      if (this.isWrapped) this.unwrap(el);
+      else this.wrap(el);
+
+      this.isWrapped = !this.isWrapped;
+    },
+    wrap(el) {
+      velocity(
+        el,
+        {
           width: "80%",
           height: "80%",
           top: "10%",
           left: "10%"
-        }, {
-          duration: 250
-        });
-      }
-
-      this.isWrapped = !this.isWrapped;
+        },
+        { duration: 250 }
+      );
+    },
+    unwrap(el) {
+      velocity(
+        el,
+        {
+          width: "100%",
+          height: "100%",
+          left: 0,
+          top: 0
+        },
+        { duration: 250 }
+      );
     }
   }
 };
