@@ -1,2 +1,2 @@
 (window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0de531"],{"84ba":function(n,e,t){"use strict";t.r(e);var s=function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("section",[t("span",{on:{click:function(e){return n.$emit("wrap")}}},[t("i",{staticClass:"fas fa-bars menu-icon"})]),n._v(" This will be a About section ")])},a=[],c=t("2877"),i={},u=Object(c["a"])(i,s,a,!1,null,null,null);e["default"]=u.exports}}]);
-//# sourceMappingURL=chunk-2d0de531.b2ff7983.js.map
+//# sourceMappingURL=chunk-2d0de531.37705943.js.map
