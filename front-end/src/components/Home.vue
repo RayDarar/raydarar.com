@@ -1,10 +1,7 @@
 <template>
   <section id="home">
-    <div
-      @click="$emit('wrap')"
-      class="menu-icon"
-      :class="{ icon: !isWrapped, icon_rotated: isWrapped }"
-    >
+    <div class="overlay" ref="overlay"></div>
+    <div @click="wrap" class="menu-icon" :class="{ icon: !isWrapped, icon_rotated: isWrapped }">
       <img src="@/assets/double_arrow_white.svg" alt="menu icon" />
     </div>
     <div class="home-wrapper">
@@ -53,11 +50,33 @@
 </template>
 
 <script>
+import velocity from "velocity-animate";
+
 export default {
   name: "Home",
   methods: {
     goLink(link) {
       window.open(link, "_blank");
+    },
+    wrap() {
+      if (this.isWrapped) {
+        velocity(
+          this.$refs.overlay,
+          {
+            opacity: 0
+          },
+          { duration: 500 }
+        );
+      } else {
+        velocity(
+          this.$refs.overlay,
+          {
+            opacity: 0.4
+          },
+          { duration: 500 }
+        );
+      }
+      this.$emit("wrap");
     }
   },
   props: {
@@ -75,6 +94,16 @@ export default {
   align-items: center;
   font-size: 1em;
   border-radius: 34px;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
 }
 
 .home-wrapper {

@@ -3,13 +3,15 @@
     <transition name="nav-toggle">
       <navigation class="root__nav" v-show="loaded && isWrapped"></navigation>
     </transition>
-    <router-view
-      @wrap="wrap"
-      :class="{ root__component: !isWrapped, root__component_wrapped: isWrapped }"
-      ref="sect"
-      v-show="loaded"
-      :isWrapped="isWrapped"
-    ></router-view>
+    <transition mode="in-out">
+      <router-view
+        @wrap="wrap"
+        :class="{ root__component: !isWrapped, root__component_wrapped: isWrapped }"
+        ref="sect"
+        v-show="loaded"
+        :isWrapped="isWrapped"
+      ></router-view>
+    </transition>
     <background @load-content="loadContent" />
   </article>
 </template>
@@ -105,6 +107,7 @@ $navHeight: 10%;
   top: 3%;
   font-size: 1.8rem;
   cursor: pointer;
+  z-index: 1;
 }
 
 .nav-toggle-enter-active {
@@ -117,7 +120,7 @@ $navHeight: 10%;
 
 @keyframes nav-toggle {
   0% {
-    transform: translateY(-100%);
+    transform: translateY(-150%);
   }
   100% {
     transform: translateY(0%);
