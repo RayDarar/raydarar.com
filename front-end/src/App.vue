@@ -1,7 +1,15 @@
 <template>
   <article class="root">
-    <navigation class="root__nav" v-show="loaded"></navigation>
-    <router-view @wrap="wrap" class="root__component" ref="sect" v-show="loaded"></router-view>
+    <transition name="nav-toggle">
+      <navigation class="root__nav" v-show="loaded && isWrapped"></navigation>
+    </transition>
+    <router-view
+      @wrap="wrap"
+      :class="{ root__component: !isWrapped, root__component_wrapped: isWrapped }"
+      ref="sect"
+      v-show="loaded"
+      :isWrapped="isWrapped"
+    ></router-view>
     <background @load-content="loadContent" />
   </article>
 </template>
@@ -28,33 +36,6 @@ export default {
       this.loaded = true;
     },
     wrap() {
-      if (this.isWrapped) {
-        // unwrap
-        velocity(
-          this.$refs.sect.$el,
-          {
-            width: "100%",
-            left: "0%",
-            top: "0%",
-            height: "100%",
-            fontSize: "1em"
-          },
-          { duration: 500 }
-        );
-      } else {
-        // wrap
-        velocity(
-          this.$refs.sect.$el,
-          {
-            width: "80%",
-            left: "10%",
-            top: "10%",
-            height: "80%",
-            fontSize: "0.8em"
-          },
-          { duration: 500 }
-        );
-      }
       this.isWrapped = !this.isWrapped;
     }
   }
@@ -97,13 +78,24 @@ $navHeight: 10%;
   &__nav {
     position: absolute;
     @include def_rect($navLeft, 0, $navWidth, $navHeight);
-    z-index: 0;
+    z-index: 1;
   }
 
   &__component {
     position: relative;
     @include def_rect(0, 0, 100%, 100%);
-    z-index: 1;
+    z-index: 2;
+    transition: 0.8s;
+  }
+
+  &__component_wrapped {
+    position: relative;
+    @include def_rect($navLeft, $navHeight, $navWidth, 80%);
+    transform: perspective(400px) rotateX(10deg);
+    transition: 0.8s;
+    transform-style: preserve-3d;
+    z-index: 2;
+    font-size: 0.5em;
   }
 }
 
@@ -113,5 +105,22 @@ $navHeight: 10%;
   top: 3%;
   font-size: 1.8rem;
   cursor: pointer;
+}
+
+.nav-toggle-enter-active {
+  animation: nav-toggle 0.5s ease-in-out;
+}
+
+.nav-toggle-leave-active {
+  animation: nav-toggle 0.5s ease-in-out reverse;
+}
+
+@keyframes nav-toggle {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 </style>

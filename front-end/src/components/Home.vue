@@ -1,11 +1,12 @@
 <template>
   <section id="home">
-    <img
-      src="@/assets/double_arrow_white.svg"
-      alt="menu icon"
-      class="menu-icon icon"
+    <div
       @click="$emit('wrap')"
-    />
+      class="menu-icon"
+      :class="{ icon: !isWrapped, icon_rotated: isWrapped }"
+    >
+      <img src="@/assets/double_arrow_white.svg" alt="menu icon" />
+    </div>
     <div class="home-wrapper">
       <img src="@/assets/profile-image.png" class="home-wrapper__profile-image" />
       <span class="home-wrapper__name">Ryspekov Ansar</span>
@@ -58,6 +59,9 @@ export default {
     goLink(link) {
       window.open(link, "_blank");
     }
+  },
+  props: {
+    isWrapped: Boolean
   }
 };
 </script>
@@ -70,6 +74,7 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 1em;
+  border-radius: 34px;
 }
 
 .home-wrapper {
@@ -113,28 +118,12 @@ export default {
   position: relative;
 }
 
+.icon_rotated {
+  transition: 0.5s;
+  transform: rotateZ(180deg);
+}
+
 .icon {
-  transition: 0.3s;
-  animation: jump 1s ease-in-out reverse infinite;
-}
-
-.icon::after {
-  content: "Navigation";
-  display: block;
-  position: absolute;
-  left: 10px;
-  top: 10px;
-}
-
-@keyframes jump {
-  0% {
-    transform: translateY(0);
-  }
-  25% {
-    transform: translateY(20%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
+  transition: 0.5s;
 }
 </style>

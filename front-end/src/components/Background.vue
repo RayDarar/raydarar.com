@@ -17,7 +17,7 @@ class Star {
     this.angle = angle;
     this.origin = origin;
     this.speed = speed;
-    this.move(20000 * speed);
+    this.move(15000 * speed);
 
     this.v_prev = { x: v.x, y: v.y };
   }
