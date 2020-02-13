@@ -9,7 +9,7 @@
 
 <style lang="scss">
 #home {
-  background-color: black;
+  // background-color: black;
   color: white;
 }
 </style>
