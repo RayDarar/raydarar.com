@@ -48,7 +48,7 @@ export default {
       sketch.createCanvas(width, height);
       const origin = sketch.createVector(width / 2, height);
       let off = 0;
-      for (let i = 0; i < 1500; i++, off += 0.02) {
+      for (let i = 0; i < 500; i++, off += 0.02) {
         const v2 = sketch.createVector(sketch.random(width), sketch.random(height * 1.5));
         const speed = sketch.map(sketch.noise(off), 0, 1, 0.1, 0.25);
         stars.push(new Star(v2, origin, origin.angleBetween(v2), origin.dist(v2), speed));

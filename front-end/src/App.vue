@@ -1,7 +1,7 @@
 <template>
   <article class="root">
     <navigation class="root__nav" v-show="loaded"></navigation>
-    <router-view class="root__component" ref="sect" v-show="loaded"></router-view>
+    <router-view @wrap="wrap" class="root__component" ref="sect" v-show="loaded"></router-view>
     <background @load-content="loadContent" />
   </article>
 </template>
@@ -26,6 +26,36 @@ export default {
   methods: {
     loadContent() {
       this.loaded = true;
+    },
+    wrap() {
+      if (this.isWrapped) {
+        // unwrap
+        velocity(
+          this.$refs.sect.$el,
+          {
+            width: "100%",
+            left: "0%",
+            top: "0%",
+            height: "100%",
+            fontSize: "1em"
+          },
+          { duration: 500 }
+        );
+      } else {
+        // wrap
+        velocity(
+          this.$refs.sect.$el,
+          {
+            width: "80%",
+            left: "10%",
+            top: "10%",
+            height: "80%",
+            fontSize: "0.8em"
+          },
+          { duration: 500 }
+        );
+      }
+      this.isWrapped = !this.isWrapped;
     }
   }
 };

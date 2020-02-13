@@ -1,15 +1,140 @@
 <template>
   <section id="home">
-    <span @click="$emit('wrap')">
-      <i class="fas fa-bars menu-icon"></i>
-    </span>
-    This will be a Home section
+    <img
+      src="@/assets/double_arrow_white.svg"
+      alt="menu icon"
+      class="menu-icon icon"
+      @click="$emit('wrap')"
+    />
+    <div class="home-wrapper">
+      <img src="@/assets/profile-image.png" class="home-wrapper__profile-image" />
+      <span class="home-wrapper__name">Ryspekov Ansar</span>
+      <span class="home-wrapper__def">Web Developer | Student | Programmer</span>
+      <div class="home-wrapper__icons-wrapper">
+        <img
+          class="icons-wrapper__icon"
+          src="@/assets/vk-icon.svg"
+          alt="vk-icon"
+          title="vk"
+          @click="goLink('https://vk.com/raydarar')"
+        />
+        <img
+          class="icons-wrapper__icon"
+          src="@/assets/github-icon.svg"
+          alt="github-icon"
+          title="github"
+          @click="goLink('https://github.com/RayDarar')"
+        />
+        <img
+          class="icons-wrapper__icon"
+          src="@/assets/instagram-icon.svg"
+          alt="instagram-icon"
+          title="instagram"
+          @click="goLink('https://www.instagram.com/raydarar/')"
+        />
+        <img
+          class="icons-wrapper__icon"
+          src="@/assets/gmail-icon.svg"
+          alt="gmail-icon"
+          title="gmail"
+          @click="goLink('https://mail.google.com/mail/?view=cm&fs=1&to=dfqgth400@gmail.com')"
+        />
+        <img
+          class="icons-wrapper__icon"
+          src="@/assets/steam-icon.svg"
+          alt="steam-icon"
+          title="steam"
+          @click="goLink('https://steamcommunity.com/id/RayDarar')"
+        />
+      </div>
+    </div>
   </section>
 </template>
 
+<script>
+export default {
+  name: "Home",
+  methods: {
+    goLink(link) {
+      window.open(link, "_blank");
+    }
+  }
+};
+</script>
+
 <style lang="scss">
 #home {
-  // background-color: black;
   color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+}
+
+.home-wrapper {
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 35%;
+  height: 65%;
+  border-radius: 34px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1em;
+}
+
+.home-wrapper__profile-image {
+  width: 45%;
+  margin-top: 2em;
+}
+
+.home-wrapper__name {
+  font-size: 2.5em;
+  font-weight: 500;
+}
+
+.home-wrapper__def {
+  font-size: 1.2em;
+}
+
+.home-wrapper__icons-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%;
+  justify-content: space-around;
+}
+
+.icons-wrapper__icon {
+  width: 34px;
+  cursor: pointer;
+  position: relative;
+}
+
+.icon {
+  transition: 0.3s;
+  animation: jump 1s ease-in-out reverse infinite;
+}
+
+.icon::after {
+  content: "Navigation";
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 </style>
