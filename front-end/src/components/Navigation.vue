@@ -1,10 +1,10 @@
 <template>
   <nav id="nav">
-    <li class="link">Home</li>
-    <li class="link">About Me</li>
-    <li class="link">Timelapse</li>
-    <li class="link">Projects</li>
-    <li class="link">Contacts</li>
+    <li class="link" @click="$emit('route-to', 'Home')">Home</li>
+    <li class="link" @click="$emit('route-to', 'About Me')">About Me</li>
+    <li class="link" @click="$emit('route-to', 'Timelapse')">Timelapse</li>
+    <li class="link" @click="$emit('route-to', 'Projects')">Projects</li>
+    <li class="link" @click="$emit('route-to', 'Contacts')">Contacts</li>
   </nav>
 </template>
 

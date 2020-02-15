@@ -5,7 +5,24 @@
     </transition>
     <transition mode="in-out" name="slide">
       <keep-alive>
-        <router-view v-show="loaded"></router-view>
+        <router-view
+          :class="{ root__component: !isWrapped, root__component_wrapped: isWrapped }"
+          v-show="loaded"
+        >
+          <div
+            :class="{ overlay: isWrapped, overlay_hidden: !isWrapped }"
+            slot="wrapper"
+            ref="overlay"
+          />
+          <img
+            src="@/assets/double_arrow_white.svg"
+            alt="wrapper-icon"
+            slot="wrapper"
+            ref="wrapper"
+            :class="{ wrapper: !isWrapped, wrapper_rotated: isWrapped }"
+            @click="wrap"
+          />
+        </router-view>
       </keep-alive>
     </transition>
     <background @load-content="loadContent" />
@@ -117,5 +134,33 @@ $navHeight: 10%;
     z-index: 2;
     font-size: 0.5em;
   }
+}
+
+.overlay,
+.overlay_hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  transition: 0.3s;
+}
+
+.overlay_hidden {
+  opacity: 0;
+}
+
+.wrapper,
+.wrapper_rotated {
+  position: absolute;
+  right: 3%;
+  top: 3%;
+  cursor: pointer;
+}
+
+.wrapper_rotated {
+  transform: rotateZ(180deg);
 }
 </style>

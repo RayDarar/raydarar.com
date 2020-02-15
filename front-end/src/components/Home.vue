@@ -1,5 +1,7 @@
 <template>
   <section id="home">
+    <slot name="overlay" />
+    <slot name="wrapper" />
     <div class="home-wrapper">
       <img src="@/assets/profile-image.png" class="home-wrapper__profile-image" />
       <span class="home-wrapper__name">Ryspekov Ansar</span>
