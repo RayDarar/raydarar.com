@@ -4,8 +4,8 @@
     <slot name="wrapper" />
     <div class="home-wrapper">
       <img src="@/assets/profile-image.png" class="home-wrapper__profile-image" />
-      <span class="home-wrapper__name">Ryspekov Ansar</span>
-      <span class="home-wrapper__def">Web Developer | Student | Programmer</span>
+      <span class="home-wrapper__name">{{ content.HOME_NAME }}</span>
+      <span class="home-wrapper__def">{{ content.HOME_SUB }}</span>
       <div class="home-wrapper__icons-wrapper">
         <img
           class="icons-wrapper__icon"
@@ -53,6 +53,16 @@ export default {
   methods: {
     goLink(link) {
       window.open(link, "_blank");
+    }
+  },
+  computed: {
+    content() {
+      return this.$store.state.language;
+    }
+  },
+  watch: {
+    content(n, o) {
+      document.title = n.TITLE_HOME;
     }
   }
 };

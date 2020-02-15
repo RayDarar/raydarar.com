@@ -1,10 +1,14 @@
 <template>
   <nav id="nav">
-    <li class="link" @click="$router.push('/')">Home</li>
-    <li class="link" @click="$router.push('about-me')">About Me</li>
-    <li class="link">Timelapse</li>
-    <li class="link">Projects</li>
-    <li class="link">Contacts</li>
+    <li class="link" @click="$router.push('/')">{{ content.NAV_HOME }}</li>
+    <li class="link" @click="$router.push('about-me')">{{ content.NAV_ABOUT }}</li>
+    <li class="link">{{ content.NAV_TIMELAPSE }}</li>
+    <li class="link">{{ content.NAV_PROJECTS }}</li>
+    <li class="link">{{ content.NAV_CONTACTS }}</li>
+    <div class="link-wrapper">
+      <span class="link" @click="setLanguage('en')">en</span>
+      <span class="link" @click="setLanguage('ru')">ru</span>
+    </div>
   </nav>
 </template>
 
@@ -13,6 +17,16 @@ export default {
   name: "Navigation",
   data() {
     return {};
+  },
+  computed: {
+    content() {
+      return this.$store.state.language;
+    }
+  },
+  methods: {
+    setLanguage(lang) {
+      this.$store.commit("setLanguage", lang);
+    }
   }
 };
 </script>
@@ -27,6 +41,11 @@ export default {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+}
+
+.link-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .link {

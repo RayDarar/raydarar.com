@@ -3,27 +3,25 @@
     <transition name="nav-toggle">
       <navigation class="root__nav" v-show="loaded && isWrapped"></navigation>
     </transition>
-    <transition name="slide" mode="out-in">
-      <keep-alive>
-        <router-view
-          :class="{ root__component: !isWrapped, root__component_wrapped: isWrapped }"
-          v-show="loaded"
-        >
-          <div
-            :class="{ overlay: isWrapped, overlay_hidden: !isWrapped }"
-            slot="wrapper"
-            ref="overlay"
-          />
-          <img
-            src="@/assets/double_arrow_white.svg"
-            alt="wrapper-icon"
-            slot="wrapper"
-            ref="wrapper"
-            :class="{ wrapper: !isWrapped, wrapper_rotated: isWrapped }"
-            @click="wrap"
-          />
-        </router-view>
-      </keep-alive>
+    <transition name="slide-left" mode="out-in">
+      <router-view
+        :class="{ root__component: !isWrapped, root__component_wrapped: isWrapped }"
+        v-show="loaded"
+      >
+        <div
+          :class="{ overlay: isWrapped, overlay_hidden: !isWrapped }"
+          slot="wrapper"
+          ref="overlay"
+        />
+        <img
+          src="@/assets/double_arrow_white.svg"
+          alt="wrapper-icon"
+          slot="wrapper"
+          ref="wrapper"
+          :class="{ wrapper: !isWrapped, wrapper_rotated: isWrapped }"
+          @click="wrap"
+        />
+      </router-view>
     </transition>
     <background @load-content="loadContent" />
   </article>
@@ -53,6 +51,9 @@ export default {
     wrap() {
       this.isWrapped = !this.isWrapped;
     }
+  },
+  created() {
+    this.$store.commit("setLanguage");
   }
 };
 </script>
@@ -140,5 +141,19 @@ $navHeight: 10%;
 
 .wrapper_rotated {
   transform: rotateZ(180deg);
+}
+
+.slide-left-enter-active {
+  transition: all 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53); //ease-in-quad
+}
+
+.slide-left-leave-active {
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94); //ease-out-quad
+}
+
+.slide-left-enter,
+.slide-left-leave-to {
+  transform: scaleY(0) translateZ(0);
+  opacity: 0;
 }
 </style>
