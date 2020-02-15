@@ -1,10 +1,10 @@
 <template>
   <nav id="nav">
-    <router-link class="link" to="/">Home</router-link>
-    <router-link class="link" to="/about">About Me</router-link>
-    <router-link class="link" to="/timelapse">Timelapse</router-link>
-    <router-link class="link" to="/projects">Projects</router-link>
-    <router-link class="link" to="/contacts">Contacts</router-link>
+    <li class="link">Home</li>
+    <li class="link">About Me</li>
+    <li class="link">Timelapse</li>
+    <li class="link">Projects</li>
+    <li class="link">Contacts</li>
   </nav>
 </template>
 
@@ -26,9 +26,10 @@
   font-size: 1.2em;
   opacity: 0.8;
   transition: 0.3s;
+  cursor: pointer;
 }
 
-.router-link-active {
+.link-active {
   opacity: 1;
   border-bottom: 1px solid white;
 }
@@ -36,5 +37,4 @@
 .link:hover {
   opacity: 1;
 }
-
 </style>

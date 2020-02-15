@@ -3,14 +3,10 @@
     <transition name="nav-toggle">
       <navigation class="root__nav" v-show="loaded && isWrapped"></navigation>
     </transition>
-    <transition mode="in-out">
-      <router-view
-        @wrap="wrap"
-        :class="{ root__component: !isWrapped, root__component_wrapped: isWrapped }"
-        ref="sect"
-        v-show="loaded"
-        :isWrapped="isWrapped"
-      ></router-view>
+    <transition mode="in-out" name="slide">
+      <keep-alive>
+        <router-view v-show="loaded"></router-view>
+      </keep-alive>
     </transition>
     <background @load-content="loadContent" />
   </article>
@@ -30,7 +26,29 @@ export default {
   data() {
     return {
       isWrapped: false,
-      loaded: false
+      loaded: false,
+      tabs: [
+        {
+          index: 0,
+          name: "Home"
+        },
+        {
+          index: 1,
+          name: "Home"
+        },
+        {
+          index: 2,
+          name: "Home"
+        },
+        {
+          index: 3,
+          name: "Home"
+        },
+        {
+          index: 4,
+          name: "Home"
+        }
+      ]
     };
   },
   methods: {
@@ -98,32 +116,6 @@ $navHeight: 10%;
     transform-style: preserve-3d;
     z-index: 2;
     font-size: 0.5em;
-  }
-}
-
-.menu-icon {
-  position: absolute;
-  right: 3%;
-  top: 3%;
-  font-size: 1.8rem;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.nav-toggle-enter-active {
-  animation: nav-toggle 0.5s ease-in-out;
-}
-
-.nav-toggle-leave-active {
-  animation: nav-toggle 0.5s ease-in-out reverse;
-}
-
-@keyframes nav-toggle {
-  0% {
-    transform: translateY(-150%);
-  }
-  100% {
-    transform: translateY(0%);
   }
 }
 </style>
