@@ -16,7 +16,7 @@ const router = new VueRouter({
       component: () => import("@/components/Contacts")
     },
     {
-      path: "/about",
+      path: "/about-me",
       component: () => import("@/components/About")
     },
     {

@@ -33,12 +33,17 @@ export default new Vuex.Store({
         name: "Contacts",
         isSelected: false
       }
-    ]
+    ],
+    language: null
   },
   mutations: {
     setActiveTab(state, index) {
       for (const tab of state.tabs) tab.isSelected = false;
       state.tabs[index].isSelected = true;
+    },
+    setLanguage(state, lang) {
+      if (lang === "ru") state.language = ru;
+      else state.language = en;
     }
   },
   actions: {},

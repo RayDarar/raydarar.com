@@ -1,9 +1,9 @@
 <template>
   <article class="root">
     <transition name="nav-toggle">
-      <navigation class="root__nav" v-show="loaded && isWrapped" @route-to="routeTo"></navigation>
+      <navigation class="root__nav" v-show="loaded && isWrapped"></navigation>
     </transition>
-    <transition mode="in-out" name="slide">
+    <transition name="slide" mode="out-in">
       <keep-alive>
         <router-view
           :class="{ root__component: !isWrapped, root__component_wrapped: isWrapped }"
@@ -52,9 +52,6 @@ export default {
     },
     wrap() {
       this.isWrapped = !this.isWrapped;
-    },
-    routeTo(where) {
-      alert(where);
     }
   }
 };
