@@ -1,12 +1,16 @@
 <template>
   <article class="root">
     <transition name="nav-toggle">
-      <navigation class="root__nav" v-show="loaded && isWrapped"></navigation>
+      <navigation class="root__nav" v-show="loaded && isWrapped" @route-to="routeTo"></navigation>
     </transition>
-    <transition name="slide-left">
+    <transition name="slide-in">
       <keep-alive>
         <router-view
-          :class="{ root__component: !isWrapped, root__component_wrapped: isWrapped }"
+          :class="{
+            root__component: !isWrapped,
+            root__component_wrapped: isWrapped,
+            'slide-out': sliding
+          }"
           v-show="loaded"
         >
           <div
@@ -42,8 +46,9 @@ export default {
   },
   data() {
     return {
-      isWrapped: true,
-      loaded: false
+      isWrapped: false,
+      loaded: false,
+      sliding: false
     };
   },
   methods: {
@@ -52,6 +57,16 @@ export default {
     },
     wrap() {
       this.isWrapped = !this.isWrapped;
+    },
+    routeTo(path) {
+      this.sliding = true;
+      setTimeout(() => {
+        if (this.$route.path !== path) {
+          this.sliding = false;
+          this.$router.push(path);
+          setTimeout(() => (this.isWrapped = false), 1100);
+        }
+      }, 500);
     }
   },
   created() {
@@ -149,20 +164,17 @@ $navHeight: 8%;
   transform: rotateZ(180deg);
 }
 
-.slide-left-enter-active {
-  transition: all 1s ease-in-out;
+.slide-out {
+  transition: all 0.5s ease-in-out;
+  transform: translateY(-100%);
 }
 
-.slide-left-leave-active {
-  transition: all 1s ease-in-out;
+.slide-in-enter-active {
+  transition: all 1s ease;
 }
 
-.slide-left-enter {
-  transform: translateX(100%);
+.slide-in-enter {
+  transform: translateY(100%);
   opacity: 0;
-}
-
-.slide-left-leave {
-  transform: translateX(-100%);
 }
 </style>
