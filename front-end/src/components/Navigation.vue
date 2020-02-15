@@ -52,7 +52,6 @@ export default {
 #nav {
   background-color: rgba(62, 70, 82, 0.7);
   border-radius: 34px;
-  // margin: 1em;
   margin-top: 1em;
   display: flex;
   flex-direction: row;
@@ -81,5 +80,47 @@ export default {
 
 .link:hover {
   opacity: 1;
+}
+@media screen and (max-width: 1114px) {
+  .link {
+    list-style: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #nav {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  #nav {
+    width: 60%;
+    height: 25%;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    border-radius: 0 0 34px 0;
+  }
+
+  .link-wrapper {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .link-wrapper > li {
+    grid-column: 1 / 3;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .home-wrapper__def {
+    font-size: 0.9em;
+  }
+
+  .home-wrapper__name {
+    font-size: 2.3em;
+  }
 }
 </style>

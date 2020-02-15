@@ -64,7 +64,7 @@ export default {
         if (this.$route.path !== path) {
           this.sliding = false;
           this.$router.push(path);
-          setTimeout(() => (this.isWrapped = false), 1100);
+          setTimeout(() => (this.isWrapped = false), 900);
         }
       }, 500);
     }
@@ -134,7 +134,6 @@ $mainColor: #1a2639;
     transition: 0.8s;
     transform-style: preserve-3d;
     z-index: 2;
-    font-size: 0.5em;
   }
 }
 
@@ -183,6 +182,12 @@ $mainColor: #1a2639;
 .slide-in-enter {
   transform: translateY(100%);
   opacity: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .root__component_wrapped {
+    top: 15%;
+  }
 }
 
 @media screen and (max-width: 530px) {

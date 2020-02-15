@@ -83,8 +83,8 @@ export default {
 
 .home-wrapper {
   background-color: rgba(255, 255, 255, 0.4);
-  width: 35%;
-  height: 65%;
+  width: 40%;
+  height: 70%;
   border-radius: 34px;
 
   display: flex;
@@ -123,7 +123,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 50%;
+  width: 65%;
   justify-content: space-around;
 }
 
