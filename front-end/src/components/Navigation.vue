@@ -35,7 +35,8 @@ export default {
 #nav {
   background-color: rgba(62, 70, 82, 0.7);
   border-radius: 34px;
-  margin: 1em;
+  // margin: 1em;
+  margin-top: 1em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

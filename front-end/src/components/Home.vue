@@ -3,7 +3,9 @@
     <slot name="overlay" />
     <slot name="wrapper" />
     <div class="home-wrapper">
-      <img src="@/assets/profile-image.png" class="home-wrapper__profile-image" />
+      <div class="home-wrapper__profile-image">
+        <img src="@/assets/profile-image.jpg" />
+      </div>
       <span class="home-wrapper__name">{{ content.HOME_NAME }}</span>
       <span class="home-wrapper__def">{{ content.HOME_SUB }}</span>
       <div class="home-wrapper__icons-wrapper">
@@ -93,8 +95,19 @@ export default {
 }
 
 .home-wrapper__profile-image {
-  width: 45%;
   margin-top: 2em;
+  border-radius: 50%;
+  width: 45%;
+}
+
+.home-wrapper__profile-image > img {
+  max-width: 100%;
+  transition: 0.3s;
+}
+
+.home-wrapper__profile-image > img:hover {
+  transform: scale(1.5);
+  transform-origin: 50% 50%;
 }
 
 .home-wrapper__name {

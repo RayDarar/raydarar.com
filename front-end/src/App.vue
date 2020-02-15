@@ -63,7 +63,7 @@ export default {
 
 $navWidth: 80%;
 $navLeft: (100% - $navWidth) / 2;
-$navHeight: 10%;
+$navHeight: 8%;
 
 @mixin def_rect($x, $y, $width, $height) {
   left: $x;
@@ -125,10 +125,12 @@ $navHeight: 10%;
   height: 100%;
   opacity: 0.4;
   transition: 0.3s;
+  z-index: 1;
 }
 
 .overlay_hidden {
   opacity: 0;
+  z-index: -1;
 }
 
 .wrapper,
@@ -137,6 +139,8 @@ $navHeight: 10%;
   right: 3%;
   top: 3%;
   cursor: pointer;
+  z-index: 2;
+  transition: 0.3s;
 }
 
 .wrapper_rotated {
