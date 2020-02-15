@@ -82,6 +82,8 @@ $navWidth: 80%;
 $navLeft: (100% - $navWidth) / 2;
 $navHeight: 8%;
 
+$mainColor: #1a2639;
+
 @mixin def_rect($x, $y, $width, $height) {
   left: $x;
   top: $y;
@@ -100,6 +102,10 @@ $navHeight: 8%;
     family: Montserrat;
   }
   overflow: hidden;
+}
+
+::selection {
+  background-color: $mainColor;
 }
 
 .root {
@@ -158,6 +164,7 @@ $navHeight: 8%;
   cursor: pointer;
   z-index: 2;
   transition: 0.3s;
+  width: 26px;
 }
 
 .wrapper_rotated {
@@ -176,5 +183,8 @@ $navHeight: 8%;
 .slide-in-enter {
   transform: translateY(100%);
   opacity: 0;
+}
+
+@media screen and (max-width: 530px) {
 }
 </style>

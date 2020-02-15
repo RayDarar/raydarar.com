@@ -136,4 +136,63 @@ export default {
 .icon {
   transition: 0.5s;
 }
+
+@media screen and (max-width: 1114px) {
+  .home-wrapper {
+    width: 70%;
+    height: 75%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .home-wrapper {
+    width: 85%;
+    height: 75%;
+  }
+
+  .home-wrapper__name {
+    font-size: 2.6em;
+  }
+
+  .home-wrapper__def {
+    font-size: 1.3em;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .home-wrapper {
+    width: 100%;
+    height: 80%;
+    border-radius: 0px;
+  }
+
+  .home-wrapper__profile-image {
+    width: 60%;
+  }
+
+  .home-wrapper__def {
+    font-size: 1em;
+  }
+
+  .home-wrapper__icons-wrapper {
+    width: 90%;
+    justify-content: space-around;
+  }
+
+  .icons-wrapper__icon {
+    width: 30px;
+    cursor: pointer;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .home-wrapper__def {
+    font-size: 0.9em;
+  }
+
+  .home-wrapper__name {
+    font-size: 2.3em;
+  }
+}
 </style>
