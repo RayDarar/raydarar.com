@@ -1,10 +1,20 @@
 <template>
   <nav id="nav">
-    <li class="link" @click="$router.push('/')">{{ content.NAV_HOME }}</li>
-    <li class="link" @click="$router.push('about-me')">{{ content.NAV_ABOUT }}</li>
-    <li class="link">{{ content.NAV_TIMELAPSE }}</li>
-    <li class="link">{{ content.NAV_PROJECTS }}</li>
-    <li class="link">{{ content.NAV_CONTACTS }}</li>
+    <li class="link" :class="{ link_active: index === 0 }" @click="routeTo('/', 0)">
+      {{ content.NAV_HOME }}
+    </li>
+    <li class="link" :class="{ link_active: index === 1 }" @click="routeTo('/about-me', 1)">
+      {{ content.NAV_ABOUT }}
+    </li>
+    <li class="link" :class="{ link_active: index === 2 }" @click="routeTo('/timelapse', 2)">
+      {{ content.NAV_TIMELAPSE }}
+    </li>
+    <li class="link" :class="{ link_active: index === 3 }" @click="routeTo('/projects', 3)">
+      {{ content.NAV_PROJECTS }}
+    </li>
+    <li class="link" :class="{ link_active: index === 4 }" @click="routeTo('/contacts', 4)">
+      {{ content.NAV_CONTACTS }}
+    </li>
     <div class="link-wrapper">
       <span class="link" @click="setLanguage('en')">en</span>
       <span class="link" @click="setLanguage('ru')">ru</span>
@@ -21,11 +31,18 @@ export default {
   computed: {
     content() {
       return this.$store.state.language;
+    },
+    index() {
+      return this.$store.state.tabIndex;
     }
   },
   methods: {
     setLanguage(lang) {
       this.$store.commit("setLanguage", lang);
+    },
+    routeTo(path, index) {
+      this.$store.commit("setTabIndex", index);
+      this.$emit("route-to", path);
     }
   }
 };
@@ -58,9 +75,8 @@ export default {
   cursor: pointer;
 }
 
-.link-active {
+.link_active {
   opacity: 1;
-  border-bottom: 1px solid white;
 }
 
 .link:hover {

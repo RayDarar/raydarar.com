@@ -7,33 +7,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    tabs: [
-      {
-        index: 0,
-        name: "Home",
-        isSelected: false
-      },
-      {
-        index: 1,
-        name: "About Me",
-        isSelected: false
-      },
-      {
-        index: 2,
-        name: "Timelapse",
-        isSelected: false
-      },
-      {
-        index: 3,
-        name: "Projects",
-        isSelected: false
-      },
-      {
-        index: 4,
-        name: "Contacts",
-        isSelected: false
-      }
-    ],
+    tabIndex: 0,
     language: null
   },
   mutations: {
@@ -44,6 +18,9 @@ export default new Vuex.Store({
     setLanguage(state, lang) {
       if (lang === "ru") state.language = ru;
       else state.language = en;
+    },
+    setTabIndex(state, index) {
+      state.tabIndex = index;
     }
   },
   actions: {},
