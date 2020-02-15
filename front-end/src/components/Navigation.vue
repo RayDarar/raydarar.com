@@ -8,6 +8,15 @@
   </nav>
 </template>
 
+<script>
+export default {
+  name: "Navigation",
+  data() {
+    return {};
+  }
+};
+</script>
+
 <style lang="scss" scoped>
 #nav {
   background-color: rgba(62, 70, 82, 0.7);

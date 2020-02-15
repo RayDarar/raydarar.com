@@ -1,7 +1,7 @@
 <template>
   <article class="root">
     <transition name="nav-toggle">
-      <navigation class="root__nav" v-show="loaded && isWrapped"></navigation>
+      <navigation class="root__nav" v-show="loaded && isWrapped" @route-to="routeTo"></navigation>
     </transition>
     <transition mode="in-out" name="slide">
       <keep-alive>
@@ -43,29 +43,7 @@ export default {
   data() {
     return {
       isWrapped: false,
-      loaded: false,
-      tabs: [
-        {
-          index: 0,
-          name: "Home"
-        },
-        {
-          index: 1,
-          name: "Home"
-        },
-        {
-          index: 2,
-          name: "Home"
-        },
-        {
-          index: 3,
-          name: "Home"
-        },
-        {
-          index: 4,
-          name: "Home"
-        }
-      ]
+      loaded: false
     };
   },
   methods: {
@@ -74,6 +52,9 @@ export default {
     },
     wrap() {
       this.isWrapped = !this.isWrapped;
+    },
+    routeTo(where) {
+      alert(where);
     }
   }
 };
