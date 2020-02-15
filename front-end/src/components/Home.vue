@@ -160,6 +160,9 @@ export default {
 }
 
 @media screen and (max-width: 530px) {
+  #home {
+    border-radius: 0;
+  }
   .home-wrapper {
     width: 100%;
     height: 80%;

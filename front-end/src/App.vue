@@ -46,7 +46,7 @@ export default {
   },
   data() {
     return {
-      isWrapped: false,
+      isWrapped: true,
       loaded: false,
       sliding: false
     };
@@ -186,5 +186,17 @@ $mainColor: #1a2639;
 }
 
 @media screen and (max-width: 530px) {
+  .root__component_wrapped {
+    transform: translateY(30%);
+    @include def_rect(0, 0, 100%, 100%);
+  }
+
+  .slide-out {
+    transform: translateY(-100%);
+  }
+
+  .slide-in-enter {
+    transform: translateY(100%);
+  }
 }
 </style>
