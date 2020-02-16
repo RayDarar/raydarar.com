@@ -54,9 +54,7 @@
 export default {
   name: "Home",
   data() {
-    return {
-      isFirstOpen: true
-    };
+    return {};
   },
   methods: {
     goLink(link) {
@@ -66,16 +64,14 @@ export default {
   computed: {
     content() {
       return this.$store.state.language;
+    },
+    isFirstOpen() {
+      return this.$store.state.isFirstOpen;
     }
   },
   watch: {
     content(n, o) {
       document.title = n.TITLE_HOME;
-    }
-  },
-  created() {
-    const isFirstOpen = localStorage.getItem("isFirstOpen");
-    if (isFirstOpen) {
     }
   }
 };

@@ -8,7 +8,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     tabIndex: 0,
-    language: null
+    language: null,
+    isFirstOpen: true
   },
   mutations: {
     setActiveTab(state, index) {
@@ -21,6 +22,9 @@ export default new Vuex.Store({
     },
     setTabIndex(state, index) {
       state.tabIndex = index;
+    },
+    closeFirstOpen(state) {
+      state.isFirstOpen = false;
     }
   },
   actions: {},

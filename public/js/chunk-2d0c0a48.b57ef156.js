@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0c0a48"],{"433f":function(n,e,s){"use strict";s.r(e);var t=function(){var n=this,e=n.$createElement,s=n._self._c||e;return s("section",[s("span",{on:{click:function(e){return n.$emit("wrap")}}},[s("i",{staticClass:"fas fa-bars menu-icon"})]),n._v(" This will be a Timelapse section ")])},a=[],c=s("2877"),i={},l=Object(c["a"])(i,t,a,!1,null,null,null);e["default"]=l.exports}}]);
-//# sourceMappingURL=chunk-2d0c0a48.b57ef156.js.map

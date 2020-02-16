@@ -58,6 +58,7 @@ export default {
     },
     wrap() {
       this.isWrapped = !this.isWrapped;
+      this.$store.commit("closeFirstOpen");
     },
     routeTo(path) {
       this.sliding = true;
