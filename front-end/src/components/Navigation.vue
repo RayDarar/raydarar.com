@@ -101,16 +101,20 @@ export default {
     left: 0;
     margin-top: 0;
     border-radius: 0 0 34px 0;
+
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr 0.5fr;
+    padding: 1em;
+  }
+
+  #nav > li {
+    grid-column: 1 / 2;
   }
 
   .link-wrapper {
-    display: grid;
-    grid-template-rows: repeat(5, 1fr);
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .link-wrapper > li {
-    grid-column: 1 / 3;
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
   }
 }
 

@@ -1,8 +1,7 @@
 <template>
   <section>
-    <span @click="$emit('wrap')">
-      <i class="fas fa-bars menu-icon"></i>
-    </span>
+    <slot name="overlay" />
+    <slot name="wrapper" />
     This will be a Contacts section
   </section>
 </template>

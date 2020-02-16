@@ -1,5 +1,6 @@
 <template>
   <section id="home">
+    <span class="explore-more" v-if="isFirstOpen">{{ content.EXPLORE_MORE }}</span>
     <slot name="overlay" />
     <slot name="wrapper" />
     <div class="home-wrapper">
@@ -52,6 +53,11 @@
 <script>
 export default {
   name: "Home",
+  data() {
+    return {
+      isFirstOpen: true
+    };
+  },
   methods: {
     goLink(link) {
       window.open(link, "_blank");
@@ -65,6 +71,11 @@ export default {
   watch: {
     content(n, o) {
       document.title = n.TITLE_HOME;
+    }
+  },
+  created() {
+    const isFirstOpen = localStorage.getItem("isFirstOpen");
+    if (isFirstOpen) {
     }
   }
 };
@@ -112,11 +123,11 @@ export default {
 
 .home-wrapper__name {
   font-size: 2.5em;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .home-wrapper__def {
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 .home-wrapper__icons-wrapper {
@@ -135,6 +146,12 @@ export default {
 
 .icon {
   transition: 0.5s;
+}
+
+.explore-more {
+  position: absolute;
+  right: 6%;
+  top: 4%;
 }
 
 @media screen and (max-width: 1114px) {
@@ -156,6 +173,10 @@ export default {
 
   .home-wrapper__def {
     font-size: 1.3em;
+  }
+
+  .explore-more {
+    top: 4%;
   }
 }
 
@@ -186,6 +207,11 @@ export default {
     width: 30px;
     cursor: pointer;
     position: relative;
+  }
+
+  .explore-more {
+    top: 3%;
+    right: 10%;
   }
 }
 

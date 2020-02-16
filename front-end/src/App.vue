@@ -48,7 +48,8 @@ export default {
     return {
       isWrapped: false,
       loaded: false,
-      sliding: false
+      sliding: false,
+      isFirst: true
     };
   },
   methods: {
@@ -70,6 +71,7 @@ export default {
     }
   },
   created() {
+    // default language as English
     this.$store.commit("setLanguage");
   }
 };
@@ -191,6 +193,11 @@ $mainColor: #1a2639;
 }
 
 @media screen and (max-width: 530px) {
+  .wrapper,
+  .wrapper_rotated {
+    width: 20px;
+    top: 2%;
+  }
   .root__component_wrapped {
     transform: translateY(30%);
     @include def_rect(0, 0, 100%, 100%);

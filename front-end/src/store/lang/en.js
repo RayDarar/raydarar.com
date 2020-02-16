@@ -1,4 +1,5 @@
 export default {
+  EXPLORE_MORE: "Explore more",
   TITLE_HOME: "Ryspekov | Home",
   TITLE_ABOUT: "Ryspekov | About Me",
   HOME_NAME: "Ryspekov Ansar",

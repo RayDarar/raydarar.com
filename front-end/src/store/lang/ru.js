@@ -1,4 +1,5 @@
 export default {
+  EXPLORE_MORE: "Узнать больше",
   TITLE_HOME: "Ryspekov | Главная",
   TITLE_ABOUT: "Ryspekov | О мне",
   HOME_NAME: "Рыспеков Ансар",
