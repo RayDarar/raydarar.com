@@ -46,7 +46,7 @@ export default {
   },
   data() {
     return {
-      isWrapped: true,
+      isWrapped: false,
       loaded: false,
       sliding: false
     };
