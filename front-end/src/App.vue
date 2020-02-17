@@ -66,7 +66,7 @@ export default {
         if (this.$route.path !== path) {
           this.sliding = false;
           this.$router.push(path);
-          setTimeout(() => (this.isWrapped = false), 900);
+          setTimeout(() => (this.isWrapped = false), 700);
         }
       }, 500);
     }

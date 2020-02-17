@@ -23,14 +23,19 @@ class Star {
     this.y = this.origin.y + this.r * Math.sin(this.angle);
   }
   redraw() {
-    requestAnimationFrame(() => {
+    if (
+      -10 <= this.x &&
+      this.x <= this.sky.canvas.width + 10 &&
+      -10 <= this.y &&
+      this.y <= this.sky.canvas.height
+    ) {
       this.sky.context.beginPath();
       this.sky.context.arc(this.x, this.y, 1.5, 0, 2 * Math.PI, false);
       this.sky.context.fillStyle = "white";
       this.sky.context.fill();
       this.sky.context.strokeStyle = "transparent";
       this.sky.context.stroke();
-    });
+    }
   }
 }
 
@@ -81,7 +86,7 @@ class NightSky {
 
       for (let i = 0, off = 0; i < this.starsCount; i++, off += 0.02) {
         let noise = p.noise(off, 0, 0);
-        noise = noise * (0.3 / 1);
+        noise = noise * (0.25 / 1);
         this.stars.push(new Star(this, noise));
       }
 
@@ -91,7 +96,7 @@ class NightSky {
         this.canvas.width / 2,
         0
       );
-      this.gradient.addColorStop(0, this.fromColor);
+      this.gradient.addColorStop(0.3, this.fromColor);
       this.gradient.addColorStop(1, this.toColor);
 
       this.intervalId = setInterval(() => {
