@@ -9,7 +9,7 @@ export default {
   methods: {},
   mounted() {
     sky.createCanvas("canvas");
-    sky.setBackgroundColors("#123578", "#131A61");
+    sky.setBackgroundColors("#123578", "#1A2639");
     sky.setNumberOfStars(1000);
     sky.setFramerate(30);
     sky.startSimulation();
