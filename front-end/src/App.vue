@@ -212,4 +212,11 @@ $mainColor: #1a2639;
     transform: translateY(100%);
   }
 }
+
+#canvas {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
 </style>
