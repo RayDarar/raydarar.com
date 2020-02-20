@@ -23,8 +23,6 @@
     "vue-template-compiler": "^2.6.10"
   },
   "browserslist": [
-    "defaults",
-    "ie 10",
-    "safari 10"
+    "defaults"
   ]
 }

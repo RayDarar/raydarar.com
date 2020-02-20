@@ -73,7 +73,8 @@ export default {
     content(n, o) {
       document.title = n.TITLE_HOME;
     }
-  }
+  },
+  components: {}
 };
 </script>
 

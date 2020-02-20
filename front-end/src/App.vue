@@ -36,7 +36,6 @@
 <script>
 import Nav from "@/components/Navigation";
 import Background from "@/components/Background";
-import velocity from "velocity-animate";
 
 export default {
   name: "App",
