@@ -15,7 +15,7 @@ class Star {
   }
 
   move(speed = this.currentSpeed) {
-    if (this.currentSpeed < this.maxSpeed) this.currentSpeed *= 1.05;
+    if (this.currentSpeed < this.maxSpeed) this.currentSpeed += 0.0015;
     let radians = this.angle;
     let degree = (radians * 180) / Math.PI;
     degree -= speed;
@@ -32,7 +32,7 @@ class Star {
       this.y <= this.sky.canvas.height + 10
     ) {
       this.sky.context.beginPath();
-      this.sky.context.arc(this.x, this.y, this.currentSpeed * 8, 0, 2 * Math.PI, false);
+      this.sky.context.arc(this.x, this.y, this.currentSpeed * 9, 0, 2 * Math.PI, false);
       this.sky.context.fillStyle = "white";
       this.sky.context.fill();
       this.sky.context.strokeStyle = "transparent";

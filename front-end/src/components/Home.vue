@@ -90,7 +90,7 @@ export default {
 }
 
 .home-wrapper {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.3);
   width: 40%;
   height: 70%;
   border-radius: 34px;

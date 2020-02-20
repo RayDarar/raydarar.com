@@ -9,7 +9,8 @@
           :class="{
             root__component: !isWrapped,
             root__component_wrapped: isWrapped,
-            'slide-out': sliding
+            'slide-out': sliding,
+            'fade-in': fadeIn
           }"
           v-show="loaded"
         >
@@ -48,7 +49,8 @@ export default {
       isWrapped: false,
       loaded: false,
       sliding: false,
-      isFirst: true
+      isFirst: true,
+      fadeIn: true
     };
   },
   methods: {
@@ -60,19 +62,22 @@ export default {
       this.$store.commit("closeFirstOpen");
     },
     routeTo(path) {
-      this.sliding = true;
-      setTimeout(() => {
-        if (this.$route.path !== path) {
+      if (this.$route.path !== path) {
+        this.sliding = true;
+        setTimeout(() => {
           this.sliding = false;
           this.$router.push(path);
-          setTimeout(() => (this.isWrapped = false), 700);
-        }
-      }, 500);
+          setTimeout(() => (this.isWrapped = false), 1000);
+        }, 500);
+      }
     }
   },
   created() {
     // default language as English
     this.$store.commit("setLanguage");
+  },
+  mounted() {
+    setTimeout(() => (this.fadeIn = false), 2500);
   }
 };
 </script>
@@ -217,5 +222,18 @@ $mainColor: #1a2639;
   width: 100vw;
   height: 100vh;
   z-index: -1;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fade-in 1.5s 1s ease-in-out forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>
