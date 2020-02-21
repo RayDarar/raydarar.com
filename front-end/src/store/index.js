@@ -8,7 +8,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     tabIndex: 0,
-    language: null,
+    language: en,
     isFirstOpen: true
   },
   mutations: {
@@ -21,12 +21,22 @@ export default new Vuex.Store({
       else state.language = en;
     },
     setTabIndex(state, index) {
-      state.tabIndex = index;
+      if (typeof index == "number") state.tabIndex = index;
+      else if (index === "/") state.tabIndex = 0;
+      else if (index === "/about-me") state.tabIndex = 1;
+      else if (index === "/history") state.tabIndex = 2;
+      else if (index === "/projects") state.tabIndex = 3;
+      else if (index === "/contacts") state.tabIndex = 4;
     },
     closeFirstOpen(state) {
       state.isFirstOpen = false;
     }
   },
   actions: {},
-  modules: {}
+  modules: {},
+  getters: {
+    selectedLanguage(state) {
+      return state.language == en ? "en" : "ru";
+    }
+  }
 });

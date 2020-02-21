@@ -59,12 +59,7 @@ export default {
         this.$router.push(path);
       }
     }
-  },
-  created() {
-    // default language as English
-    this.$store.commit("setLanguage");
-  },
-  mounted() {}
+  }
 };
 </script>
 

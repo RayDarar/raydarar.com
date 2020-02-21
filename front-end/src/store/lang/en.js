@@ -6,7 +6,7 @@ export default {
   HOME_SUB: "Programmer | Student | Science lover",
   NAV_HOME: "Home",
   NAV_ABOUT: "About Me",
-  NAV_TIMELAPSE: "Timelapse",
+  NAV_TIMELAPSE: "History",
   NAV_PROJECTS: "Projects",
   NAV_CONTACTS: "Contacts"
 };

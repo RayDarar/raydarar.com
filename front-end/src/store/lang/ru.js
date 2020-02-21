@@ -6,7 +6,7 @@ export default {
   HOME_SUB: "Программист | Студент | Любитель науки",
   NAV_HOME: "Главная",
   NAV_ABOUT: "О мне",
-  NAV_TIMELAPSE: "Временная Линия",
+  NAV_TIMELAPSE: "История",
   NAV_PROJECTS: "Проекты",
   NAV_CONTACTS: "Контакты"
 };

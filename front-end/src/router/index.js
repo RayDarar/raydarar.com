@@ -9,23 +9,28 @@ const router = new VueRouter({
   routes: [
     {
       path: "/",
-      component: Home
-    },
-    {
-      path: "/contacts",
-      component: () => import("@/components/Contacts")
+      component: Home,
+      meta: { index: 0 }
     },
     {
       path: "/about-me",
-      component: () => import("@/components/About")
+      component: () => import("@/components/About"),
+      meta: { index: 1 }
+    },
+    {
+      path: "/history",
+      component: () => import("@/components/Timelapse"),
+      meta: { index: 2 }
     },
     {
       path: "/projects",
-      component: () => import("@/components/Projects")
+      component: () => import("@/components/Projects"),
+      meta: { index: 3 }
     },
     {
-      path: "/timelapse",
-      component: () => import("@/components/Timelapse")
+      path: "/contacts",
+      component: () => import("@/components/Contacts"),
+      meta: { index: 4 }
     }
   ]
 });

@@ -1,23 +1,33 @@
 <template>
   <nav id="nav">
-    <li class="link" :class="{ link_active: index === 0 }" @click="routeTo('/', 0)">
+    <li class="link" @click="routeTo('/', 0)">
       {{ content.NAV_HOME }}
     </li>
-    <li class="link" :class="{ link_active: index === 1 }" @click="routeTo('/about-me', 1)">
+    <li class="link" @click="routeTo('/about-me', 1)">
       {{ content.NAV_ABOUT }}
     </li>
-    <li class="link" :class="{ link_active: index === 2 }" @click="routeTo('/timelapse', 2)">
+    <li class="link" @click="routeTo('/history', 2)">
       {{ content.NAV_TIMELAPSE }}
     </li>
-    <li class="link" :class="{ link_active: index === 3 }" @click="routeTo('/projects', 3)">
+    <li class="link" @click="routeTo('/projects', 3)">
       {{ content.NAV_PROJECTS }}
     </li>
-    <li class="link" :class="{ link_active: index === 4 }" @click="routeTo('/contacts', 4)">
+    <li class="link" @click="routeTo('/contacts', 4)">
       {{ content.NAV_CONTACTS }}
     </li>
     <div class="link-wrapper">
-      <span class="link" @click="setLanguage('en')">en</span>
-      <span class="link" @click="setLanguage('ru')">ru</span>
+      <span
+        class="link"
+        @click="setLanguage('en')"
+        :class="{ link_active: selectedLanguage === 'en' }"
+        >en</span
+      >
+      <span
+        class="link"
+        @click="setLanguage('ru')"
+        :class="{ link_active: selectedLanguage === 'ru' }"
+        >ru</span
+      >
     </div>
   </nav>
 </template>
@@ -34,6 +44,9 @@ export default {
     },
     index() {
       return this.$store.state.tabIndex;
+    },
+    selectedLanguage() {
+      return this.$store.getters.selectedLanguage;
     }
   },
   methods: {
@@ -41,7 +54,6 @@ export default {
       this.$store.commit("setLanguage", lang);
     },
     routeTo(path, index) {
-      this.$store.commit("setTabIndex", index);
       this.$emit("route-to", path);
     }
   }
@@ -104,7 +116,7 @@ export default {
 
     display: grid;
     grid-template-rows: repeat(5, 1fr);
-    grid-template-columns: 1fr 0.5fr;
+    grid-template-columns: 1fr 0.2fr;
     padding: 1em;
   }
 
