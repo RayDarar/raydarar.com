@@ -13,7 +13,6 @@ export default {
     sky.setNumberOfStars(1000);
     sky.setFramerate(30);
     sky.startSimulation();
-    this.$emit("load-content");
   }
 };
 </script>

@@ -1,23 +1,21 @@
 <template>
   <article class="root">
     <transition name="nav-toggle">
-      <navigation class="root__nav" v-show="loaded && isWrapped" @route-to="routeTo"></navigation>
+      <navigation class="root__nav" v-show="isWrapped" @route-to="routeTo"></navigation>
     </transition>
-    <transition name="slide-in">
+    <transition name="slide" mode="out-in">
       <keep-alive>
         <router-view
           :class="{
             root__component: !isWrapped,
-            root__component_wrapped: isWrapped,
-            'slide-out': sliding,
-            'fade-in': fadeIn
+            root__component_wrapped: isWrapped
           }"
-          v-show="loaded"
         >
           <div
             :class="{ overlay: isWrapped, overlay_hidden: !isWrapped }"
             slot="wrapper"
             ref="overlay"
+            @click="wrap"
           />
           <img
             src="@/assets/double_arrow_white.svg"
@@ -30,7 +28,7 @@
         </router-view>
       </keep-alive>
     </transition>
-    <background @load-content="loadContent" />
+    <background />
   </article>
 </template>
 
@@ -47,28 +45,18 @@ export default {
   data() {
     return {
       isWrapped: false,
-      loaded: false,
       sliding: false,
-      isFirst: true,
-      fadeIn: true
+      isFirst: true
     };
   },
   methods: {
-    loadContent() {
-      this.loaded = true;
-    },
     wrap() {
       this.isWrapped = !this.isWrapped;
       this.$store.commit("closeFirstOpen");
     },
     routeTo(path) {
       if (this.$route.path !== path) {
-        this.sliding = true;
-        setTimeout(() => {
-          this.sliding = false;
-          this.$router.push(path);
-          setTimeout(() => (this.isWrapped = false), 800);
-        }, 500);
+        this.$router.push(path);
       }
     }
   },
@@ -76,9 +64,7 @@ export default {
     // default language as English
     this.$store.commit("setLanguage");
   },
-  mounted() {
-    setTimeout(() => (this.fadeIn = false), 2500);
-  }
+  mounted() {}
 };
 </script>
 
@@ -157,6 +143,10 @@ $mainColor: #1a2639;
   z-index: 1;
 }
 
+.overlay {
+  cursor: pointer;
+}
+
 .overlay_hidden {
   opacity: 0;
   z-index: -1;
@@ -177,20 +167,6 @@ $mainColor: #1a2639;
   transform: rotateZ(180deg);
 }
 
-.slide-out {
-  transition: all 0.5s ease-in-out;
-  transform: translateY(-100%);
-}
-
-.slide-in-enter-active {
-  transition: all 1s ease;
-}
-
-.slide-in-enter {
-  transform: translateY(100%);
-  opacity: 0;
-}
-
 @media screen and (max-width: 900px) {
   .root__component_wrapped {
     top: 15%;
@@ -207,14 +183,31 @@ $mainColor: #1a2639;
     transform: translateY(30%);
     @include def_rect(0, 0, 100%, 100%);
   }
+}
 
-  .slide-out {
-    transform: translateY(-100%);
-  }
+.slide-enter-active,
+.slide-leave-active,
+.nav-toggle-enter-active,
+.nav-toggle-leave-active {
+  transition-duration: 0.6s;
+  transition-property: height, opacity, transform;
+  transition-timing-function: ease-in-out;
+  overflow: hidden;
+}
 
-  .slide-in-enter {
-    transform: translateY(100%);
-  }
+.slide-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.slide-leave-active,
+.nav-toggle-leave-active {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.nav-toggle-enter {
+  transform: translateY(-120%);
 }
 
 #canvas {
@@ -222,18 +215,5 @@ $mainColor: #1a2639;
   width: 100vw;
   height: 100vh;
   z-index: -1;
-}
-
-.fade-in {
-  opacity: 0;
-  animation: fade-in 1.5s 1s ease-in-out forwards;
-}
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 </style>
