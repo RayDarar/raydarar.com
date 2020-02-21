@@ -67,7 +67,7 @@ export default {
         setTimeout(() => {
           this.sliding = false;
           this.$router.push(path);
-          setTimeout(() => (this.isWrapped = false), 1000);
+          setTimeout(() => (this.isWrapped = false), 800);
         }, 500);
       }
     }

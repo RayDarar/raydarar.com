@@ -106,6 +106,7 @@ export default {
   margin-top: 2em;
   border-radius: 50%;
   width: 45%;
+  overflow: hidden;
 }
 
 .home-wrapper__profile-image > img {
