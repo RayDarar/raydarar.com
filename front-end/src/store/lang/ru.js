@@ -8,5 +8,7 @@ export default {
   NAV_ABOUT: "О мне",
   NAV_TIMELAPSE: "История",
   NAV_PROJECTS: "Проекты",
-  NAV_CONTACTS: "Контакты"
+  NAV_CONTACTS: "Контакты",
+  CONTACTS_TITLE: "Свяжитесь со мной",
+  CONTACTS_SUB_TITLE: "Ответ в течении 24 часов (местное время UTC +6.00)"
 };
