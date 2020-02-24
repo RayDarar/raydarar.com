@@ -94,6 +94,7 @@ $mainColor: #1a2639;
 
 ::selection {
   background-color: $mainColor;
+  color: white;
 }
 
 .root {
