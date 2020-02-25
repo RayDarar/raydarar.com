@@ -4,30 +4,32 @@
       <navigation class="root__nav" v-show="isWrapped" @route-to="routeTo"></navigation>
     </transition>
     <transition name="slide" mode="out-in">
-      <keep-alive>
-        <router-view
-          :class="{
-            root__component: !isWrapped,
-            root__component_wrapped: isWrapped
-          }"
-        >
-          <div
-            :class="{ overlay: isWrapped, overlay_hidden: !isWrapped }"
-            slot="wrapper"
-            ref="overlay"
-            @click="wrap"
-          />
-          <img
-            src="@/assets/double_arrow_white.svg"
-            alt="wrapper-icon"
-            slot="wrapper"
-            ref="wrapper"
-            :class="{ wrapper: !isWrapped, wrapper_rotated: isWrapped }"
-            @click="wrap"
-          />
-        </router-view>
-      </keep-alive>
+      <router-view
+        :class="{
+          root__component: !isWrapped,
+          root__component_wrapped: isWrapped,
+          'fade-in': isFirstOpen
+        }"
+      >
+        <div
+          :class="{ overlay: isWrapped, overlay_hidden: !isWrapped }"
+          slot="wrapper"
+          ref="overlay"
+          @click="wrap"
+        />
+        <img
+          src="@/assets/double_arrow_white.svg"
+          alt="wrapper-icon"
+          slot="wrapper"
+          ref="wrapper"
+          :class="{ wrapper: !isWrapped, wrapper_rotated: isWrapped }"
+          @click="wrap"
+        />
+      </router-view>
     </transition>
+    <span class="explore-more" :class="{ 'fade-in': isFirstOpen }" v-if="isFirstOpen">{{
+      content.EXPLORE_MORE
+    }}</span>
     <background />
   </article>
 </template>
@@ -45,8 +47,7 @@ export default {
   data() {
     return {
       isWrapped: false,
-      sliding: false,
-      isFirst: true
+      sliding: false
     };
   },
   methods: {
@@ -58,6 +59,14 @@ export default {
       if (this.$route.path !== path) {
         this.$router.push(path);
       }
+    }
+  },
+  computed: {
+    isFirstOpen() {
+      return this.$store.state.isFirstOpen;
+    },
+    content() {
+      return this.$store.state.language;
     }
   }
 };
@@ -163,9 +172,19 @@ $mainColor: #1a2639;
   transform: rotateZ(180deg);
 }
 
+.explore-more {
+  position: absolute;
+  right: 6%;
+  top: 4%;
+  color: white;
+}
+
 @media screen and (max-width: 900px) {
   .root__component_wrapped {
     top: 15%;
+  }
+  .explore-more {
+    top: 4%;
   }
 }
 
@@ -178,6 +197,10 @@ $mainColor: #1a2639;
   .root__component_wrapped {
     transform: translateY(30%);
     @include def_rect(0, 0, 100%, 100%);
+  }
+  .explore-more {
+    top: 3%;
+    right: 10%;
   }
 }
 
@@ -204,6 +227,20 @@ $mainColor: #1a2639;
 
 .nav-toggle-enter {
   transform: translateY(-120%);
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fade-in 1.5s 1s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 #canvas {
