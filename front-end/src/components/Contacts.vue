@@ -13,7 +13,7 @@
         <li class="card" v-for="card in cards" :key="card.name">
           <img :src="getImgUrl(card.icon)" alt="social-media-icon" class="card-icon" />
           <span class="card-name">{{ card.name }}:</span>
-          <span class="card-value">{{ card.value }}</span>
+          <span class="card-value" @click="goLink(card.link)">{{ card.value }}</span>
         </li>
       </ul>
     </div>
@@ -35,43 +35,43 @@ export default {
           icon: "telegram-icon.svg",
           name: "Telegram",
           value: "@RayDarar",
-          link: ""
+          link: "https://t.me/RayDarar"
         },
         {
           icon: "gmail-icon.svg",
           name: "Gmail",
           value: "dfqgth400@gmail.com",
-          link: ""
+          link: "https://mail.google.com/mail/?view=cm&fs=1&to=dfqgth400@gmail.com"
         },
         {
           icon: "whatsapp-icon.svg",
           name: "WhatsApp",
           value: "+7 (708) 614-46-72",
-          link: ""
+          link: "https://api.whatsapp.com/send?phone=77086144672"
         },
         {
           icon: "instagram-icon.svg",
           name: "Instagram",
           value: "@RayDarar",
-          link: ""
+          link: "https://www.instagram.com/raydarar/"
         },
         {
           icon: "vk-icon.svg",
           name: "VK",
           value: "@RayDarar",
-          link: ""
+          link: "https://vk.com/raydarar"
         },
         {
           icon: "github-icon.svg",
           name: "Github",
           value: "@RayDarar",
-          link: ""
+          link: "https://github.com/RayDarar"
         },
         {
           icon: "steam-icon.svg",
           name: "Steam",
           value: "cin>>RayDarar",
-          link: ""
+          link: "https://steamcommunity.com/id/RayDarar"
         }
       ]
     };
@@ -80,6 +80,9 @@ export default {
     getImgUrl(image) {
       const images = require.context("@/assets/", false, /\.svg$/);
       return images("./" + image);
+    },
+    goLink(link) {
+      window.open(link, "_blank");
     }
   }
 };
@@ -100,12 +103,49 @@ export default {
 
 .content-block {
   margin: {
-    left: 5%;
+    left: 6%;
     top: 4%;
   }
   background-color: white;
-  width: 400px;
-  padding: 1em;
+  width: 30%;
   height: 60%;
+  border-radius: 5px;
+}
+
+.sub-title-block {
+  background-color: #c24d2c;
+  color: white;
+  margin-top: 5%;
+  padding: 1em;
+}
+
+.sub-title {
+  font-weight: normal;
+  font-size: 1em;
+}
+
+.card-container {
+  margin-top: 4%;
+  margin-left: 4%;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1.3em;
+}
+.card-icon {
+  width: 28px;
+}
+.card-name {
+  margin-left: 0.6em;
+  width: 22%;
+}
+.card-value {
+  justify-self: center;
+  cursor: pointer;
+  color: #1a2639;
+  margin-left: 0.6em;
 }
 </style>
