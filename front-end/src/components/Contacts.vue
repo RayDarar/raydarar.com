@@ -7,7 +7,7 @@
     </div>
     <div class="content-block">
       <div class="sub-title-block">
-        <h3 class="sub-title">{{ content.CONTACTS_SUB_TITLE }}</h3>
+        <h3 class="sub-title" v-html="content.CONTACTS_SUB_TITLE"></h3>
       </div>
       <ul class="card-container">
         <li class="card" v-for="card in cards" :key="card.name">
@@ -147,5 +147,51 @@ export default {
   cursor: pointer;
   color: #1a2639;
   margin-left: 0.6em;
+}
+
+@media screen and (max-width: 1114px) {
+  .content-block {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .content-block {
+    margin: {
+      left: auto;
+      right: auto;
+      top: 10%;
+    }
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .title {
+    font-size: 8vw;
+  }
+  .title-block {
+    margin-top: 15%;
+  }
+  .sub-title {
+    font-size: 0.8em;
+  }
+  .content-block {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-icon {
+    width: 20px;
+  }
+
+  .card-name {
+    width: 30%;
+    font-size: 0.94em;
+  }
+
+  .card-value {
+    font-size: 0.94em;
+  }
 }
 </style>

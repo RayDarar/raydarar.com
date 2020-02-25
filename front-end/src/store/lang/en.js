@@ -10,5 +10,5 @@ export default {
   NAV_PROJECTS: "Projects",
   NAV_CONTACTS: "Contacts",
   CONTACTS_TITLE: "Get in touch with me",
-  CONTACTS_SUB_TITLE: "Response within 24 hours (local time UTC +6.00)"
+  CONTACTS_SUB_TITLE: "Response within 24 hours<br />(local time UTC +6.00)"
 };
