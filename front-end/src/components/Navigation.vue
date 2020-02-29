@@ -1,19 +1,13 @@
 <template>
   <nav id="nav">
-    <li class="link" @click="routeTo('/', 0)">
-      {{ content.NAV_HOME }}
-    </li>
-    <li class="link" @click="routeTo('/about-me', 1)">
-      {{ content.NAV_ABOUT }}
-    </li>
-    <li class="link" @click="routeTo('/history', 2)">
-      {{ content.NAV_TIMELAPSE }}
-    </li>
-    <li class="link" @click="routeTo('/projects', 3)">
-      {{ content.NAV_PROJECTS }}
-    </li>
-    <li class="link" @click="routeTo('/contacts', 4)">
-      {{ content.NAV_CONTACTS }}
+    <li
+      v-for="route in routes"
+      :key="route.index"
+      class="link"
+      :class="{ link_active: index === route.index }"
+      @click="routeTo(route.name, route.index)"
+    >
+      {{ content[route.content] }}
     </li>
     <div class="link-wrapper">
       <span
@@ -36,7 +30,35 @@
 export default {
   name: "Navigation",
   data() {
-    return {};
+    return {
+      routes: [
+        {
+          index: 0,
+          name: "/",
+          content: "NAV_HOME"
+        },
+        {
+          index: 1,
+          name: "/about-me",
+          content: "NAV_ABOUT"
+        },
+        {
+          index: 2,
+          name: "/history",
+          content: "NAV_TIMELAPSE"
+        },
+        {
+          index: 3,
+          name: "/projects",
+          content: "NAV_PROJECTS"
+        },
+        {
+          index: 4,
+          name: "/contacts",
+          content: "NAV_CONTACTS"
+        }
+      ]
+    };
   },
   computed: {
     content() {
@@ -54,7 +76,10 @@ export default {
       this.$store.commit("setLanguage", lang);
     },
     routeTo(path, index) {
-      this.$emit("route-to", path);
+      if (this.$route.path !== path) {
+        this.$router.push(path);
+        this.$store.commit("setTabIndex", index);
+      }
     }
   }
 };

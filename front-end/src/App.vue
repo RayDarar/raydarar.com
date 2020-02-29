@@ -1,7 +1,7 @@
 <template>
   <article class="root">
     <transition name="nav-toggle">
-      <navigation class="root__nav" v-show="isWrapped" @route-to="routeTo"></navigation>
+      <navigation class="root__nav" v-show="isWrapped"></navigation>
     </transition>
     <transition name="slide" mode="out-in">
       <router-view
@@ -54,11 +54,6 @@ export default {
     wrap() {
       this.isWrapped = !this.isWrapped;
       this.$store.commit("closeFirstOpen");
-    },
-    routeTo(path) {
-      if (this.$route.path !== path) {
-        this.$router.push(path);
-      }
     }
   },
   computed: {
@@ -68,6 +63,9 @@ export default {
     content() {
       return this.$store.state.language;
     }
+  },
+  created() {
+    
   }
 };
 </script>
