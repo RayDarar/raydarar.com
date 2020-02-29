@@ -65,7 +65,7 @@ export default {
     }
   },
   created() {
-    
+    if (navigator.language.includes("ru")) this.$store.commit("setLanguage", "ru");
   }
 };
 </script>
