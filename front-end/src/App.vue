@@ -78,6 +78,9 @@ $navLeft: (100% - $navWidth) / 2;
 $navHeight: 8%;
 
 $mainColor: #1a2639;
+$mainColor1: #D9DAD7;
+$mainColor2: #707070;
+$mainColor3: #C24D2C;
 
 @mixin def_rect($x, $y, $width, $height) {
   left: $x;
@@ -97,6 +100,26 @@ $mainColor: #1a2639;
     family: Montserrat;
   }
   overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  transition: all 0.3s;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  width: 1rem;
 }
 
 ::selection {
@@ -121,6 +144,7 @@ $mainColor: #1a2639;
     @include def_rect(0, 0, 100%, 100%);
     z-index: 2;
     transition: 0.8s;
+    overflow-y: auto;
   }
 
   &__component_wrapped {
@@ -130,6 +154,7 @@ $mainColor: #1a2639;
     transition: 0.8s;
     transform-style: preserve-3d;
     z-index: 2;
+    overflow-y: hidden;
   }
 }
 

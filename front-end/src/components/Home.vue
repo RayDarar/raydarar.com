@@ -73,7 +73,9 @@ export default {
       document.title = n.TITLE_HOME;
     }
   },
-  components: {}
+  created() {
+    document.title = this.content["TITLE_HOME"];
+  }
 };
 </script>
 
