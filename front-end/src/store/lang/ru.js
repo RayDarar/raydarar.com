@@ -3,7 +3,7 @@ export default {
   TITLE_HOME: "Ryspekov | Главная",
   TITLE_ABOUT: "Ryspekov | О мне",
   HOME_NAME: "Рыспеков Ансар",
-  HOME_SUB: "Программист | Студент | Любитель науки",
+  HOME_SUB: "Программист | Студент | Человек науки",
   NAV_HOME: "Главная",
   NAV_ABOUT: "О мне",
   NAV_TIMELAPSE: "История",
