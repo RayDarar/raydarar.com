@@ -11,7 +11,7 @@
       </div>
       <ul class="card-container">
         <li class="card" v-for="card in cards" :key="card.name">
-          <img :src="getImgUrl(card.icon)" alt="social-media-icon" class="card-icon" />
+          <img :src="$root.getImgUrl(card.icon)" alt="social-media-icon" class="card-icon" />
           <span class="card-name">{{ card.name }}:</span>
           <span class="card-value" @click="goLink(card.link)">{{ card.value }}</span>
         </li>
@@ -77,10 +77,6 @@ export default {
     };
   },
   methods: {
-    getImgUrl(image) {
-      const images = require.context("@/assets/", false, /\.svg$/);
-      return images("./" + image);
-    },
     goLink(link) {
       window.open(link, "_blank");
     }

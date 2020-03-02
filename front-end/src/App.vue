@@ -3,12 +3,12 @@
     <transition name="nav-toggle">
       <navigation class="root__nav" v-show="isWrapped"></navigation>
     </transition>
-    <transition name="slide" mode="out-in">
+    <transition :name="$root.isProd ? 'slide' : ''" mode="out-in">
       <router-view
         :class="{
           root__component: !isWrapped,
           root__component_wrapped: isWrapped,
-          'fade-in': isFirstOpen
+          'fade-in': isFirstOpen && $root.isProd
         }"
       >
         <div
@@ -78,9 +78,9 @@ $navLeft: (100% - $navWidth) / 2;
 $navHeight: 8%;
 
 $mainColor: #1a2639;
-$mainColor1: #D9DAD7;
+$mainColor1: #d9dad7;
 $mainColor2: #707070;
-$mainColor3: #C24D2C;
+$mainColor3: #c24d2c;
 
 @mixin def_rect($x, $y, $width, $height) {
   left: $x;
@@ -103,23 +103,14 @@ $mainColor3: #C24D2C;
 }
 
 ::-webkit-scrollbar {
-  width: 0.5rem;
+  width: 0.4rem;
   transition: all 0.3s;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  width: 1rem;
+  background: $mainColor2;
 }
 
 ::selection {

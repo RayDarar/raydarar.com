@@ -2,14 +2,39 @@
   <section id="about">
     <slot name="overlay" />
     <slot name="wrapper" />
-    <header class="heading">
-      <h2 class="heading__title">{{ content["about-main-title"] }}</h2>
-      <p class="heading__sub-title">{{ content["about-main-sub-title"] }}</p>
-    </header>
+    <!-- <header class="heading">
+      <h2 class="heading__title">{{ content["about_main_title"] }}</h2>
+      <p class="heading__sub-title">{{ content["about_main_subtitle"] }}</p>
+    </header> -->
+    <div class="info-block soft-skills">
+      <h3 class="info-block__title">{{ content["about_soft_title"] }}</h3>
+      <div class="info-block__data">
+        <div class="swiper-wrapper">
+          <soft-item
+            class="swiper-slide"
+            v-for="block in blocks"
+            :key="block"
+            :url="`soft-skills-image-${block + 1}.jpg`"
+            :title="content['about_soft_blocks'][block].title"
+            :text="content['about_soft_blocks'][block].text"
+            :is-right="block % 2 == 0"
+          ></soft-item>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <div class="info-block hard-skills">
+      <h3 class="info-block__title">{{ content["about_hard_title"] }}</h3>
+      <div class="info-block__data"></div>
+    </div>
   </section>
 </template>
 
 <script>
+import Swiper from "swiper";
+import SoftItem from "./about/SoftItem";
+
 export default {
   name: "About",
   computed: {
@@ -19,6 +44,33 @@ export default {
   },
   created() {
     document.title = this.content["TITLE_ABOUT"];
+  },
+  mounted() {
+    this.swiper = new Swiper(".swiper-container", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true
+      },
+      pagination: {
+        el: ".swiper-pagination"
+      }
+    });
+  },
+  data() {
+    return {
+      blocks: [0, 1, 2, 3],
+      swiper: null
+    };
+  },
+  components: {
+    SoftItem
   }
 };
 </script>
@@ -29,37 +81,51 @@ $mainColor1: #d9dad7;
 $mainColor2: #707070;
 $mainColor3: #c24d2c;
 
-#about {
-}
-
 .heading {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.heading::after {
-  content: "";
-  display: block;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  background-image: url("../assets/quote-bg.jpg");
-  background-attachment: fixed;
-  z-index: -1;
-  filter: blur(6px);
+
+  &::after {
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-image: url("../assets/quote-bg.jpg");
+    background-attachment: fixed;
+    z-index: -1;
+    filter: blur(6px);
+  }
+
+  &__title {
+    font-size: 3em;
+    margin: 1em;
+  }
+
+  &__sub-title {
+    font-size: 2em;
+    color: $mainColor;
+  }
 }
 
-.heading__title {
-  font-size: 3em;
-  margin: 1em;
-}
+.info-block {
+  margin-top: 300px;
+  background-color: white;
 
-.heading__sub-title {
-  font-size: 2em;
-  color: $mainColor;
+  &__title {
+    color: white;
+    background-color: $mainColor3;
+    font-size: 2em;
+    padding: 0.5em;
+    margin-top: 2em;
+    text-align: center;
+  }
+  &__data {
+  }
 }
 </style>
