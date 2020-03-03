@@ -65,6 +65,9 @@ $mainColor3: #c24d2c;
     position: absolute;
     background-image: url("../assets/quote-bg.jpg");
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     z-index: -1;
     filter: blur(6px);
   }
@@ -91,6 +94,38 @@ $mainColor3: #c24d2c;
     padding: 0.5em;
     margin-top: 2em;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .heading {
+    &__title,
+    &__sub-title {
+      text-align: center;
+    }
+  }
+
+  .info-block {
+    &__title {
+      font-size: 1.8em;
+    }
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .heading {
+    &__title {
+      font-size: 2em;
+    }
+    &__sub-title {
+      font-size: 1.2em;
+    }
+  }
+
+  .info-block {
+    &__title {
+      font-size: 1.5em;
+    }
   }
 }
 </style>

@@ -10,5 +10,31 @@ export default {
   NAV_PROJECTS: "Projects",
   NAV_CONTACTS: "Contacts",
   CONTACTS_TITLE: "Get in touch with me",
-  CONTACTS_SUB_TITLE: "Response within 24 hours<br />(local time UTC +6.00)"
+  CONTACTS_SUB_TITLE: "Response within 24 hours<br />(local time UTC +6.00)",
+  about_main_title: "The world needs people capable of solving its problems",
+  about_main_subtitle: "Let me be one of them",
+  about_soft_title: "Who am I?",
+  about_soft_blocks: [
+    {
+      title: "My name is Ansar",
+      text:
+        'I come from the beautiful city of Almaty, which literally translates as "Father of Apples". Since childhood, I dreamed of sky and stars, now goals and ideas have been added to these dreams.'
+    },
+    {
+      title: "I'm an Engineer",
+      text:
+        "While I conquer Computer Science, I like to engage in web development, game development, science and reading books."
+    },
+    {
+      title: "Red Crescent",
+      text:
+        "Such activity allows me to take a broader look at the world situation. I decided to become a part of this and acquire many useful skills after the tragic death of one wonderful person."
+    },
+    {
+      title: "I think about ecology",
+      text:
+        "The environmental situation on the planet is very scary, it is necessary to make decisions in this regard. With the small efforts of many, we can prevent a catastrophe."
+    }
+  ],
+  about_hard_title: "Interested in my technical skills?"
 };

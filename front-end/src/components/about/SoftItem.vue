@@ -31,10 +31,14 @@ export default {
 }
 img {
   max-width: 100%;
+  filter: grayscale(100%);
+  z-index: 0;
+  transition: all 0.3s;
 }
 .text-wrapper {
+  z-index: 1;
   color: white;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.65);
   position: absolute;
   top: 0;
   left: 0;
@@ -45,11 +49,11 @@ img {
   align-items: center;
   justify-content: center;
   padding: 1em;
-  cursor: pointer;
 
   .title {
     font-size: 3em;
     transition: all 0.3s;
+    opacity: 0;
   }
 
   .text {
@@ -63,8 +67,53 @@ img {
     position: relative;
   }
 
-  &:hover .text {
+  &:hover + img {
+    filter: grayscale(0%);
+  }
+
+  &:hover .text,
+  &:hover .title {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .text-wrapper {
+    .title {
+      font-size: 2.5em;
+    }
+
+    .text {
+      font-size: 1.2em;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .text-wrapper {
+    .title {
+      font-size: 2em;
+    }
+    .text {
+      font-size: 1em;
+    }
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .soft-item {
+    width: 100%;
+  }
+  .text-wrapper {
+    .title {
+      font-size: 1.8em;
+    }
+
+    .text {
+      font-size: 1em;
+      margin-left: 2em;
+      margin-right: 2em;
+    }
   }
 }
 </style>

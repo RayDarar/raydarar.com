@@ -16,7 +16,7 @@ const app = new Vue({
     }
   },
   data: {
-    isProd: false
+    isProd: true
   }
 });
 
