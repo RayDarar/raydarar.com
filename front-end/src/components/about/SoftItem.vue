@@ -1,12 +1,12 @@
 <template>
   <div class="soft-item">
-    <div class="text-wrapper" :class="{ 'text-wrapper_right': 'is-right' }">
-      <h3 class="title">{{ title }}</h3>
+    <div class="text-wrapper">
+      <h3 class="title">{{ content["about_soft_blocks"][id].title }}</h3>
       <p class="text">
-        {{ text }}
+        {{ content["about_soft_blocks"][id].text }}
       </p>
     </div>
-    <img :src="$root.getImgUrl(url)" />
+    <img :src="$root.getImgUrl(`soft-skills-image-${id + 1}.jpg`)" />
   </div>
 </template>
 
@@ -14,15 +14,19 @@
 export default {
   name: "SoftItem",
   props: {
-    url: String,
-    title: String,
-    text: String
+    id: Number
+  },
+  computed: {
+    content() {
+      return this.$store.state.language;
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .soft-item {
+  position: relative;
   width: 50%;
 }
 img {
@@ -36,5 +40,31 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  cursor: pointer;
+
+  .title {
+    font-size: 3em;
+    transition: all 0.3s;
+  }
+
+  .text {
+    font-size: 1.5em;
+    margin-left: 3em;
+    margin-right: 3em;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    opacity: 0;
+    top: 2em;
+    position: relative;
+  }
+
+  &:hover .text {
+    opacity: 1;
+  }
 }
 </style>

@@ -2,6 +2,7 @@
   <section id="contacts">
     <slot name="overlay" />
     <slot name="wrapper" />
+    <slot name="explore" />
     <div class="title-block">
       <h2 class="title">{{ content.CONTACTS_TITLE }}</h2>
     </div>

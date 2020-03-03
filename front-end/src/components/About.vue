@@ -2,12 +2,14 @@
   <section id="about">
     <slot name="overlay" />
     <slot name="wrapper" />
+    <slot name="explore" />
     <header class="heading" v-if="$root.isProd">
       <h2 class="heading__title">{{ content["about_main_title"] }}</h2>
       <p class="heading__sub-title">{{ content["about_main_subtitle"] }}</p>
     </header>
     <div class="info-block soft-skills">
       <h3 class="info-block__title">{{ content["about_soft_title"] }}</h3>
+      <soft-swiper class="info-block__data"></soft-swiper>
     </div>
     <div class="info-block hard-skills">
       <h3 class="info-block__title">{{ content["about_hard_title"] }}</h3>
@@ -17,7 +19,7 @@
 </template>
 
 <script>
-import SoftItem from "./about/SoftItem";
+import SoftSwiper from "./about/SoftSwiper";
 
 export default {
   name: "About",
@@ -31,12 +33,11 @@ export default {
   },
   data() {
     return {
-      blocks: [0, 1, 2, 3],
-      swiper: null
+      blocks: [0, 1, 2, 3]
     };
   },
   components: {
-    SoftItem
+    SoftSwiper
   }
 };
 </script>

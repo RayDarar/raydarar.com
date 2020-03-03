@@ -25,11 +25,15 @@
           :class="{ wrapper: !isWrapped, wrapper_rotated: isWrapped }"
           @click="wrap"
         />
+        <span
+          class="explore-more"
+          :class="{ 'fade-in': isFirstOpen }"
+          v-if="isFirstOpen"
+          slot="explore"
+          >{{ content.EXPLORE_MORE }}</span
+        >
       </router-view>
     </transition>
-    <span class="explore-more" :class="{ 'fade-in': isFirstOpen }" v-if="isFirstOpen">{{
-      content.EXPLORE_MORE
-    }}</span>
     <background />
   </article>
 </template>
