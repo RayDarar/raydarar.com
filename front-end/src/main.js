@@ -2,10 +2,11 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import config from "./config";
 
 Vue.config.productionTip = false;
 
-const app = new Vue({
+new Vue({
   router,
   store,
   render: h => h(App),
@@ -16,10 +17,6 @@ const app = new Vue({
     }
   },
   data: {
-    isProd: true
+    isProd: config.isProd
   }
-});
-
-app.$mount("#app");
-
-export default app;
+}).$mount("#app");
