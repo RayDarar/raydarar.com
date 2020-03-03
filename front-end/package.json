@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "mocha & vue-cli-service build"
   },
   "dependencies": {
     "core-js": "^3.4.4",
@@ -19,6 +19,8 @@
     "@vue/cli-plugin-router": "^4.1.0",
     "@vue/cli-plugin-vuex": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
+    "chai": "^4.2.0",
+    "mocha": "^7.1.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.0",
     "vue-template-compiler": "^2.6.10"

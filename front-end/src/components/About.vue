@@ -2,27 +2,12 @@
   <section id="about">
     <slot name="overlay" />
     <slot name="wrapper" />
-    <!-- <header class="heading">
+    <header class="heading" v-if="$root.isProd">
       <h2 class="heading__title">{{ content["about_main_title"] }}</h2>
       <p class="heading__sub-title">{{ content["about_main_subtitle"] }}</p>
-    </header> -->
+    </header>
     <div class="info-block soft-skills">
       <h3 class="info-block__title">{{ content["about_soft_title"] }}</h3>
-      <div class="info-block__data">
-        <div class="swiper-wrapper">
-          <soft-item
-            class="swiper-slide"
-            v-for="block in blocks"
-            :key="block"
-            :url="`soft-skills-image-${block + 1}.jpg`"
-            :title="content['about_soft_blocks'][block].title"
-            :text="content['about_soft_blocks'][block].text"
-            :is-right="block % 2 == 0"
-          ></soft-item>
-        </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-      </div>
     </div>
     <div class="info-block hard-skills">
       <h3 class="info-block__title">{{ content["about_hard_title"] }}</h3>
@@ -32,7 +17,6 @@
 </template>
 
 <script>
-import Swiper from "swiper";
 import SoftItem from "./about/SoftItem";
 
 export default {
@@ -44,24 +28,6 @@ export default {
   },
   created() {
     document.title = this.content["TITLE_ABOUT"];
-  },
-  mounted() {
-    this.swiper = new Swiper(".swiper-container", {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true
-      },
-      pagination: {
-        el: ".swiper-pagination"
-      }
-    });
   },
   data() {
     return {
@@ -124,8 +90,6 @@ $mainColor3: #c24d2c;
     padding: 0.5em;
     margin-top: 2em;
     text-align: center;
-  }
-  &__data {
   }
 }
 </style>
