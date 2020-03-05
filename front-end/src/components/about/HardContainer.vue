@@ -1,8 +1,8 @@
 <template>
   <div class="hard-container">
-    <div class="title">
-      <span>{{ title }}</span>
-    </div>
+    <h3 class="title">
+      {{ title }}
+    </h3>
     <div class="container">
       <slot />
     </div>
@@ -20,14 +20,16 @@ export default {
 
 <style lang="scss" scoped>
 $mainColor2: #707070;
-
 .hard-container {
-  display: grid;
-  grid-template-columns: 1fr 8fr;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title {
-  border-right: 2px solid $mainColor2;
+  border-bottom: 2px solid $mainColor2;
+  padding: 1em;
+  font-size: 2em;
 }
 
 .container {
@@ -36,4 +38,11 @@ $mainColor2: #707070;
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 530px) {
+  .hard-container {
+    width: 100%;
+  }
+}
+
 </style>

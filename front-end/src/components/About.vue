@@ -15,7 +15,7 @@
       <h3 class="info-block__title">{{ content["about_hard_title"] }}</h3>
       <div class="info-block__data">
         <hard-container :title="content['about_hard_blocks'][0]">
-          <hard-item>HTML5</hard-item>
+          <hard-item color="#f16529">HTML5</hard-item>
           <hard-item>CSS3</hard-item>
           <hard-item>JS</hard-item>
           <hard-item>jQuery</hard-item>
