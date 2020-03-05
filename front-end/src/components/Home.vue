@@ -172,9 +172,6 @@ export default {
 }
 
 @media screen and (max-width: 530px) {
-  #home {
-    border-radius: 0;
-  }
   .home-wrapper {
     width: 100%;
     height: 80%;
@@ -183,6 +180,10 @@ export default {
 
   .home-wrapper__profile-image {
     width: 60%;
+  }
+
+  .home-wrapper__profile-image > img:hover {
+    transform: scale(1);
   }
 
   .home-wrapper__def {

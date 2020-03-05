@@ -4,35 +4,37 @@
       <navigation class="root__nav" v-show="isWrapped"></navigation>
     </transition>
     <transition :name="$root.isProd ? 'slide' : ''" mode="out-in">
-      <router-view
-        :class="{
-          root__component: !isWrapped,
-          root__component_wrapped: isWrapped,
-          'fade-in': isFirstOpen && $root.isProd
-        }"
-      >
-        <div
-          :class="{ overlay: isWrapped, overlay_hidden: !isWrapped }"
-          slot="wrapper"
-          ref="overlay"
-          @click="wrap"
-        />
-        <img
-          src="@/assets/double_arrow_white.svg"
-          alt="wrapper-icon"
-          slot="wrapper"
-          ref="wrapper"
-          :class="{ wrapper: !isWrapped, wrapper_rotated: isWrapped }"
-          @click="wrap"
-        />
-        <span
-          class="explore-more"
-          :class="{ 'fade-in': isFirstOpen }"
-          v-if="isFirstOpen"
-          slot="explore"
-          >{{ content.EXPLORE_MORE }}</span
+      <keep-alive>
+        <router-view
+          :class="{
+            root__component: !isWrapped,
+            root__component_wrapped: isWrapped,
+            'fade-in': isFirstOpen && $root.isProd
+          }"
         >
-      </router-view>
+          <div
+            :class="{ overlay: isWrapped, overlay_hidden: !isWrapped }"
+            slot="wrapper"
+            ref="overlay"
+            @click="wrap"
+          />
+          <img
+            src="@/assets/double_arrow_white.svg"
+            alt="wrapper-icon"
+            slot="wrapper"
+            ref="wrapper"
+            :class="{ wrapper: !isWrapped, wrapper_rotated: isWrapped }"
+            @click="wrap"
+          />
+          <span
+            class="explore-more"
+            :class="{ 'fade-in': isFirstOpen }"
+            v-if="isFirstOpen"
+            slot="explore"
+            >{{ content.EXPLORE_MORE }}</span
+          >
+        </router-view>
+      </keep-alive>
     </transition>
     <background />
   </article>
