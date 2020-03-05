@@ -7,19 +7,65 @@
       <h2 class="heading__title">{{ content["about_main_title"] }}</h2>
       <p class="heading__sub-title">{{ content["about_main_subtitle"] }}</p>
     </header>
-    <div class="info-block soft-skills">
+    <div class="info-block soft-skills" v-if="$root.isProd">
       <h3 class="info-block__title">{{ content["about_soft_title"] }}</h3>
       <soft-swiper class="info-block__data"></soft-swiper>
     </div>
     <div class="info-block hard-skills">
       <h3 class="info-block__title">{{ content["about_hard_title"] }}</h3>
-      <div class="info-block__data"></div>
+      <div class="info-block__data">
+        <hard-container :title="content['about_hard_blocks'][0]">
+          <hard-item>HTML5</hard-item>
+          <hard-item>CSS3</hard-item>
+          <hard-item>JS</hard-item>
+          <hard-item>jQuery</hard-item>
+          <hard-item>AJAX</hard-item>
+          <hard-item>Vue</hard-item>
+          <hard-item>Vuex</hard-item>
+          <hard-item>Sass</hard-item>
+          <hard-item>BEM</hard-item>
+          <hard-item>Node.js</hard-item>
+          <hard-item>Express</hard-item>
+          <hard-item>PHP</hard-item>
+        </hard-container>
+        <hard-container :title="content['about_hard_blocks'][1]">
+          <hard-item>OOP</hard-item>
+          <hard-item>Patterns</hard-item>
+          <hard-item>SOLID</hard-item>
+          <hard-item>MVC</hard-item>
+        </hard-container>
+        <hard-container :title="content['about_hard_blocks'][2]">
+          <hard-item>C/C++</hard-item>
+          <hard-item>ASP.Net</hard-item>
+          <hard-item>ADO.Net</hard-item>
+          <hard-item>WPF</hard-item>
+          <hard-item>Spring</hard-item>
+          <hard-item>SQL</hard-item>
+          <hard-item>MongoDB</hard-item>
+          <hard-item>Postgre</hard-item>
+          <hard-item>MSSQL</hard-item>
+          <hard-item>MySQL</hard-item>
+          <hard-item>C#</hard-item>
+          <hard-item>Java</hard-item>
+        </hard-container>
+        <hard-container :title="content['about_hard_blocks'][3]">
+          <hard-item>Git</hard-item>
+          <hard-item>VS code</hard-item>
+          <hard-item>VS</hard-item>
+          <hard-item>Adobe XD</hard-item>
+          <hard-item>Photoshop</hard-item>
+          <hard-item>Windows</hard-item>
+          <hard-item>Linux</hard-item>
+        </hard-container>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
 import SoftSwiper from "./about/SoftSwiper";
+import HardContainer from "./about/HardContainer";
+import HardItem from "./about/HardItem";
 
 export default {
   name: "About",
@@ -37,7 +83,9 @@ export default {
     };
   },
   components: {
-    SoftSwiper
+    SoftSwiper,
+    HardContainer,
+    HardItem
   }
 };
 </script>
@@ -93,6 +141,7 @@ $mainColor3: #c24d2c;
     font-size: 2em;
     padding: 0.5em;
     margin-top: 2em;
+    margin-bottom: 1em;
     text-align: center;
   }
 }
@@ -119,12 +168,16 @@ $mainColor3: #c24d2c;
   .info-block {
     margin-top: 100px;
   }
+
   .heading {
     &__title {
       font-size: 2em;
     }
     &__sub-title {
       font-size: 1.2em;
+    }
+    &::after {
+      background-attachment: initial;
     }
   }
 

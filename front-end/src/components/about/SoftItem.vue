@@ -63,6 +63,7 @@ img {
   padding: 1em;
 
   .title {
+    text-align: center;
     font-size: 3em;
     transition: opacity 0.5s;
     opacity: 0;
@@ -122,7 +123,7 @@ img {
     }
 
     .text {
-      font-size: 1em;
+      font-size: 0.9em;
       margin-left: 2em;
       margin-right: 2em;
     }

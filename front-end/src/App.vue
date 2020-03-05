@@ -55,9 +55,11 @@ export default {
     };
   },
   methods: {
-    wrap() {
-      this.isWrapped = !this.isWrapped;
-      this.$store.commit("closeFirstOpen");
+    wrap(e) {
+      if (e.target != this.$refs.overlay || (e.target == this.$refs.overlay && this.isWrapped)) {
+        this.isWrapped = !this.isWrapped;
+        this.$store.commit("closeFirstOpen");
+      }
     }
   },
   computed: {
