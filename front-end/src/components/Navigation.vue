@@ -4,7 +4,6 @@
       v-for="route in routes"
       :key="route.index"
       class="link"
-      :class="{ link_active: index === route.index }"
       @click="routeTo(route.name, route.index)"
     >
       {{ content[route.content] }}
@@ -111,13 +110,11 @@ export default {
   cursor: pointer;
 }
 
-.link_active {
-  opacity: 1;
-}
-
+.link_active,
 .link:hover {
   opacity: 1;
 }
+
 @media screen and (max-width: 1114px) {
   .link {
     list-style: none;

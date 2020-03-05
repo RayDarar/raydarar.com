@@ -148,9 +148,10 @@ $mainColor3: #c24d2c;
   }
 
   &__component_wrapped {
-    @include def_rect($navLeft, $navHeight, $navWidth, 80%);
-    transform: perspective(400px) rotateX(10deg);
-    transform-style: preserve-3d;
+    @include def_rect($navLeft, $navHeight * 1.5, $navWidth, 80%);
+    // transform: perspective(400px) rotateX(10deg);
+    // transform-style: preserve-3d;
+    border-radius: 34px;
   }
 }
 
@@ -230,21 +231,22 @@ $mainColor3: #c24d2c;
   transition-duration: 0.6s;
   transition-property: height, opacity, transform;
   transition-timing-function: ease-in-out;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .slide-enter {
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateX(100%);
 }
 
-.slide-leave-active,
-.nav-toggle-leave-active {
+.slide-leave-active {
   opacity: 0;
-  transform: translateY(-100%);
+  transform: translateX(-100%);
 }
 
+.nav-toggle-leave-active,
 .nav-toggle-enter {
+  overflow: 0;
   transform: translateY(-120%);
 }
 
