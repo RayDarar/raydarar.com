@@ -98,6 +98,9 @@ $mainColor3: #c24d2c;
 }
 
 @media screen and (max-width: 900px) {
+  .info-block {
+    margin-top: 200px;
+  }
   .heading {
     &__title,
     &__sub-title {
@@ -113,6 +116,9 @@ $mainColor3: #c24d2c;
 }
 
 @media screen and (max-width: 530px) {
+  .info-block {
+    margin-top: 100px;
+  }
   .heading {
     &__title {
       font-size: 2em;

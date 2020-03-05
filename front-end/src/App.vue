@@ -107,8 +107,7 @@ $mainColor3: #c24d2c;
 }
 
 ::-webkit-scrollbar {
-  width: 0.4rem;
-  transition: all 0.3s;
+  width: 0.3rem;
 }
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
@@ -134,22 +133,22 @@ $mainColor3: #c24d2c;
     z-index: 1;
   }
 
-  &__component {
+  &__component,
+  &__component_wrapped {
     position: relative;
-    @include def_rect(0, 0, 100%, 100%);
     z-index: 2;
-    transition: 0.8s;
+    transition: all 0.8s;
+  }
+
+  &__component {
+    @include def_rect(0, 0, 100%, 100%);
     overflow-y: auto;
   }
 
   &__component_wrapped {
-    position: relative;
     @include def_rect($navLeft, $navHeight, $navWidth, 80%);
     transform: perspective(400px) rotateX(10deg);
-    transition: 0.8s;
     transform-style: preserve-3d;
-    z-index: 2;
-    overflow-y: hidden;
   }
 }
 
@@ -162,7 +161,7 @@ $mainColor3: #c24d2c;
   width: 100%;
   height: 100%;
   opacity: 0.4;
-  transition: 0.3s;
+  transition: opacity 0.3s;
   z-index: 1;
 }
 
@@ -182,7 +181,7 @@ $mainColor3: #c24d2c;
   top: 3%;
   cursor: pointer;
   z-index: 2;
-  transition: 0.3s;
+  transition: transform 0.3s;
   width: 26px;
 }
 

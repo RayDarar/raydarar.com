@@ -113,7 +113,8 @@ export default {
 
 .home-wrapper__profile-image > img {
   max-width: 100%;
-  transition: 0.3s;
+  transition: transform 0.3s;
+  border-radius: 50%;
 }
 
 .home-wrapper__profile-image > img:hover {
@@ -145,7 +146,7 @@ export default {
 }
 
 .icon {
-  transition: 0.5s;
+  transition: transform 0.5s;
 }
 
 @media screen and (max-width: 1114px) {

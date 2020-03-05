@@ -1,5 +1,5 @@
 <template>
-  <div class="soft-item">
+  <div class="soft-item" :class="{ 'soft-item_active': active }">
     <div class="text-wrapper">
       <h3 class="title">{{ content["about_soft_blocks"][id].title }}</h3>
       <p class="text">
@@ -14,7 +14,8 @@
 export default {
   name: "SoftItem",
   props: {
-    id: Number
+    id: Number,
+    active: Boolean
   },
   computed: {
     content() {
@@ -29,11 +30,22 @@ export default {
   position: relative;
   width: 50%;
 }
+.soft-item_active {
+  .text-wrapper {
+    .text,
+    .title {
+      opacity: 1;
+    }
+  }
+  img {
+    filter: grayscale(0%);
+  }
+}
 img {
   max-width: 100%;
   filter: grayscale(100%);
-  z-index: 0;
-  transition: all 0.3s;
+  z-index: -1;
+  transition: filter 0.3s;
 }
 .text-wrapper {
   z-index: 1;
@@ -52,7 +64,7 @@ img {
 
   .title {
     font-size: 3em;
-    transition: all 0.3s;
+    transition: opacity 0.5s;
     opacity: 0;
   }
 
@@ -61,7 +73,7 @@ img {
     margin-left: 3em;
     margin-right: 3em;
     letter-spacing: 1px;
-    transition: all 0.3s;
+    transition: opacity 0.5s;
     opacity: 0;
     top: 2em;
     position: relative;

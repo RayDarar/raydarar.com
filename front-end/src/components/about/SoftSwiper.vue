@@ -1,9 +1,13 @@
 <template>
   <div class="swiper-container">
-    <soft-item class="swiper-slide" :id="0"></soft-item>
-    <soft-item class="swiper-slide" :id="1"></soft-item>
-    <soft-item class="swiper-slide" :id="2"></soft-item>
-    <soft-item class="swiper-slide" :id="3"></soft-item>
+    <soft-item
+      class="swiper-slide"
+      :id="item.index"
+      v-for="item in items"
+      :key="item.index"
+      :active="item.isActive"
+      :data-id="item.index"
+    ></soft-item>
   </div>
 </template>
 
@@ -17,7 +21,47 @@ export default {
     SoftItem
   },
   data() {
-    return {};
+    return {
+      items: [
+        {
+          index: 0,
+          isActive: false
+        },
+        {
+          index: 1,
+          isActive: false
+        },
+        {
+          index: 2,
+          isActive: false
+        },
+        {
+          index: 3,
+          isActive: false
+        }
+      ],
+      observer: null
+    };
+  },
+  methods: {
+    setActive(e) {
+      this.items[+e[0].target.dataset.id].isActive = e[0].isIntersecting;
+    }
+  },
+  computed: {
+    width() {
+      return window.innerWidth;
+    }
+  },
+  created() {
+    this.observer = new IntersectionObserver(this.setActive, {
+      root: null,
+      threshold: 1.0
+    });
+  },
+  mounted() {
+    const elements = document.querySelectorAll(".swiper-slide[data-id]");
+    for (const el of elements) this.observer.observe(el);
   }
 };
 </script>
