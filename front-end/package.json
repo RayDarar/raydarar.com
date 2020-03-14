@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "mocha & vue-cli-service build",
+    "build": "mocha && vue-cli-service build",
     "test": "mocha"
   },
   "dependencies": {
