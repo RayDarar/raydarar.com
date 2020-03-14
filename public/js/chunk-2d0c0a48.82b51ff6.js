@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0c0a48"],{"433f":function(e,n,t){"use strict";t.r(n);var l=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("section",[e._t("overlay"),e._t("wrapper"),e._v(" This will be a Timelapse section ")],2)},a=[],c=t("2877"),s={},i=Object(c["a"])(s,l,a,!1,null,null,null);n["default"]=i.exports}}]);
-//# sourceMappingURL=chunk-2d0c0a48.82b51ff6.js.map
