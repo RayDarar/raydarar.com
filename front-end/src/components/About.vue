@@ -15,7 +15,7 @@
       <h3 class="info-block__title">{{ content["about_hard_title"] }}</h3>
       <div class="info-block__data">
         <hard-container :title="content['about_hard_blocks'][0]">
-          <hard-item color="#f16529">HTML5</hard-item>
+          <hard-item>HTML5</hard-item>
           <hard-item>CSS3</hard-item>
           <hard-item>JS</hard-item>
           <hard-item>jQuery</hard-item>
@@ -23,10 +23,9 @@
           <hard-item>Vue</hard-item>
           <hard-item>Vuex</hard-item>
           <hard-item>Sass</hard-item>
-          <hard-item>BEM</hard-item>
           <hard-item>Node.js</hard-item>
           <hard-item>Express</hard-item>
-          <hard-item>PHP</hard-item>
+          <hard-item>PHP7</hard-item>
           <hard-item>Svelte</hard-item>
         </hard-container>
         <hard-container :title="content['about_hard_blocks'][1]">
@@ -34,10 +33,13 @@
           <hard-item>Patterns</hard-item>
           <hard-item>SOLID</hard-item>
           <hard-item>MVC</hard-item>
+          <hard-item>MVVM</hard-item>
+          <hard-item>BEM</hard-item>
         </hard-container>
         <hard-container :title="content['about_hard_blocks'][2]">
           <hard-item>C/C++</hard-item>
           <hard-item>SDL</hard-item>
+          <hard-item>Python3</hard-item>
           <hard-item>C#</hard-item>
           <hard-item>ASP.Net</hard-item>
           <hard-item>ADO.Net</hard-item>
