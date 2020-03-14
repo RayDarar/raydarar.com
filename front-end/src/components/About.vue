@@ -27,6 +27,7 @@
           <hard-item>Node.js</hard-item>
           <hard-item>Express</hard-item>
           <hard-item>PHP</hard-item>
+          <hard-item>Svelte</hard-item>
         </hard-container>
         <hard-container :title="content['about_hard_blocks'][1]">
           <hard-item>OOP</hard-item>
@@ -36,17 +37,18 @@
         </hard-container>
         <hard-container :title="content['about_hard_blocks'][2]">
           <hard-item>C/C++</hard-item>
+          <hard-item>SDL</hard-item>
+          <hard-item>C#</hard-item>
           <hard-item>ASP.Net</hard-item>
           <hard-item>ADO.Net</hard-item>
           <hard-item>WPF</hard-item>
+          <hard-item>Java</hard-item>
           <hard-item>Spring</hard-item>
           <hard-item>SQL</hard-item>
           <hard-item>MongoDB</hard-item>
           <hard-item>Postgre</hard-item>
           <hard-item>MSSQL</hard-item>
           <hard-item>MySQL</hard-item>
-          <hard-item>C#</hard-item>
-          <hard-item>Java</hard-item>
         </hard-container>
         <hard-container :title="content['about_hard_blocks'][3]">
           <hard-item>Git</hard-item>

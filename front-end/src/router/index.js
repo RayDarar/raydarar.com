@@ -18,16 +18,6 @@ const router = new VueRouter({
       meta: { index: 1 }
     },
     {
-      path: "/history",
-      component: () => import("@/components/Timelapse"),
-      meta: { index: 2 }
-    },
-    {
-      path: "/projects",
-      component: () => import("@/components/Projects"),
-      meta: { index: 3 }
-    },
-    {
       path: "/contacts",
       component: () => import("@/components/Contacts"),
       meta: { index: 4 }

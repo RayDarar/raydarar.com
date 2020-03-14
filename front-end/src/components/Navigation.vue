@@ -42,16 +42,6 @@ export default {
           content: "NAV_ABOUT"
         },
         {
-          index: 2,
-          name: "/history",
-          content: "NAV_TIMELAPSE"
-        },
-        {
-          index: 3,
-          name: "/projects",
-          content: "NAV_PROJECTS"
-        },
-        {
           index: 4,
           name: "/contacts",
           content: "NAV_CONTACTS"
@@ -137,7 +127,7 @@ export default {
     border-radius: 0 0 34px 0;
 
     display: grid;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-template-columns: 1fr 0.2fr;
     padding: 1em;
   }
@@ -148,7 +138,7 @@ export default {
 
   .link-wrapper {
     grid-column: 2 / 3;
-    grid-row: 4 / 5;
+    grid-row: 2 / 3;
   }
 }
 

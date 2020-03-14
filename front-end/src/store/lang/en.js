@@ -36,5 +36,6 @@ export default {
         "The environmental situation on the planet is very scary, it is necessary to make decisions in this regard. With the small efforts of many, we can prevent a catastrophe."
     }
   ],
-  about_hard_title: "Interested in my technical skills?"
+  about_hard_title: "Interested in my technical skills?",
+  about_hard_blocks: ["WEB", "Theory", "Experience", "Instruments"]
 };
