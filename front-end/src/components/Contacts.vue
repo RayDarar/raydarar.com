@@ -12,7 +12,7 @@
       </div>
       <ul class="card-container">
         <li class="card" v-for="card in cards" :key="card.name">
-          <img :src="$root.getImgUrl(card.icon)" alt="social-media-icon" class="card-icon" />
+          <img :src="$root.getImgUrl(card.icon)" :alt="card.name" class="card-icon" />
           <span class="card-name">{{ card.name }}:</span>
           <span class="card-value" @click="goLink(card.link)">{{ card.value }}</span>
         </li>

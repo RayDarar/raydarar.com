@@ -5,7 +5,7 @@
     <slot name="explore" />
     <div class="home-wrapper">
       <div class="home-wrapper__profile-image">
-        <img src="@/assets/soft-skills-image-1.jpg" />
+        <img src="@/assets/soft-skills-image-1.jpg" alt="profile-image" />
       </div>
       <span class="home-wrapper__name">{{ content.HOME_NAME }}</span>
       <span class="home-wrapper__def">{{ content.HOME_SUB }}</span>

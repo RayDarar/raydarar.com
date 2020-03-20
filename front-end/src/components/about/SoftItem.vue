@@ -6,7 +6,7 @@
         {{ content["about_soft_blocks"][id].text }}
       </p>
     </div>
-    <img :src="$root.getImgUrl(`soft-skills-image-${id + 1}.jpg`)" />
+    <img :src="$root.getImgUrl(`soft-skills-image-${id + 1}.jpg`)" :alt="`soft-image-${id}`" />
   </div>
 </template>
 

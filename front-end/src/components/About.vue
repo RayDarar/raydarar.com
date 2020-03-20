@@ -18,15 +18,15 @@
           <hard-item>HTML5</hard-item>
           <hard-item>CSS3</hard-item>
           <hard-item>JS</hard-item>
-          <hard-item>jQuery</hard-item>
           <hard-item>AJAX</hard-item>
           <hard-item>Vue</hard-item>
           <hard-item>Vuex</hard-item>
           <hard-item>Sass</hard-item>
           <hard-item>Node.js</hard-item>
           <hard-item>Express</hard-item>
-          <hard-item>PHP7</hard-item>
-          <hard-item>Svelte</hard-item>
+          <hard-item>SQL</hard-item>
+          <hard-item>MongoDB</hard-item>
+          <hard-item>jQuery</hard-item>
         </hard-container>
         <hard-container :title="content['about_hard_blocks'][1]">
           <hard-item>OOP</hard-item>
@@ -37,6 +37,8 @@
           <hard-item>BEM</hard-item>
         </hard-container>
         <hard-container :title="content['about_hard_blocks'][2]">
+          <hard-item>PHP7</hard-item>
+          <hard-item>Svelte</hard-item>
           <hard-item>C/C++</hard-item>
           <hard-item>SDL</hard-item>
           <hard-item>Python3</hard-item>
@@ -46,8 +48,6 @@
           <hard-item>WPF</hard-item>
           <hard-item>Java</hard-item>
           <hard-item>Spring</hard-item>
-          <hard-item>SQL</hard-item>
-          <hard-item>MongoDB</hard-item>
           <hard-item>Postgre</hard-item>
           <hard-item>MSSQL</hard-item>
           <hard-item>MySQL</hard-item>

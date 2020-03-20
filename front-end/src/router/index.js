@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "@/components/Home";
+import NotFound from "@/components/NotFound";
 
 Vue.use(VueRouter);
 
@@ -9,7 +9,7 @@ const router = new VueRouter({
   routes: [
     {
       path: "/",
-      component: Home,
+      component: () => import("@/components/Home"),
       meta: { index: 0 }
     },
     {
@@ -21,6 +21,10 @@ const router = new VueRouter({
       path: "/contacts",
       component: () => import("@/components/Contacts"),
       meta: { index: 4 }
+    },
+    {
+      path: "*",
+      component: NotFound
     }
   ]
 });
