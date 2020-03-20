@@ -37,5 +37,16 @@ export default {
     }
   ],
   about_hard_title: "Interested in my technical skills?",
-  about_hard_blocks: ["WEB", "Theory", "Experience", "Instruments"]
+  about_hard_blocks: ["WEB", "Theory", "Experience", "Instruments"],
+  about_hard_intro: "What I can do",
+  about_hard_intro_blocks: [
+    "Create Webpages",
+    "Landing Pages",
+    "Web Apps",
+    "Internet Shops",
+    "Responsive, Adaptive Sites",
+    "Optimizations",
+    "Write Scripts",
+    "And More Programming"
+  ]
 };

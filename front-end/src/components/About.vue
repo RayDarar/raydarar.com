@@ -14,6 +14,11 @@
     <div class="info-block hard-skills">
       <h3 class="info-block__title">{{ content["about_hard_title"] }}</h3>
       <div class="info-block__data">
+        <hard-container :title="content['about_hard_intro']">
+          <hard-item v-for="item in content['about_hard_intro_blocks']" :key="item" resize>
+            {{ item }}
+          </hard-item>
+        </hard-container>
         <hard-container :title="content['about_hard_blocks'][0]">
           <hard-item>HTML5</hard-item>
           <hard-item>CSS3</hard-item>

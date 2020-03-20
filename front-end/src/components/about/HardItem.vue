@@ -1,12 +1,15 @@
 <template>
-  <div class="hard-item">
+  <div class="hard-item" :class="{ 'hard-item_flex': resize }">
     <slot />
   </div>
 </template>
 
 <script>
 export default {
-  name: "HardItem"
+  name: "HardItem",
+  props: {
+    resize: Boolean
+  }
 };
 </script>
 
@@ -27,6 +30,11 @@ export default {
   font-size: 1.5em;
 }
 
+.hard-item_flex {
+  width: 100% !important;
+  font-size: 1rem !important;
+}
+
 @media screen and (max-width: 900px) {
   .hard-item {
     margin: 1em;
@@ -41,5 +49,4 @@ export default {
     margin: 0.5em;
   }
 }
-
 </style>
