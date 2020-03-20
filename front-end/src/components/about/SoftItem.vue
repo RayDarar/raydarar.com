@@ -36,17 +36,18 @@ export default {
     .title {
       opacity: 1;
     }
-  }
-  img {
-    filter: grayscale(0%);
+    & + img {
+      filter: grayscale(0%);
+    }
   }
 }
 img {
   max-width: 100%;
   filter: grayscale(100%);
-  z-index: -1;
   transition: filter 0.3s;
+  z-index: 0;
 }
+
 .text-wrapper {
   z-index: 1;
   color: white;
@@ -61,7 +62,7 @@ img {
   align-items: center;
   justify-content: center;
   padding: 1em;
-
+  
   .title {
     text-align: center;
     font-size: 3em;
@@ -79,14 +80,18 @@ img {
     top: 2em;
     position: relative;
   }
+}
 
-  &:hover + img {
-    filter: grayscale(0%);
-  }
+@media screen and (min-width: 1025px) {
+  .text-wrapper {
+    &:hover + img {
+      filter: grayscale(0%);
+    }
 
-  &:hover .text,
-  &:hover .title {
-    opacity: 1;
+    &:hover .text,
+    &:hover .title {
+      opacity: 1;
+    }
   }
 }
 

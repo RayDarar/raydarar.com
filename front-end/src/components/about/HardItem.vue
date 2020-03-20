@@ -20,7 +20,7 @@ export default {
   transition: background-color 0.3s;
   @include setRect(150px);
   margin: 2em;
-  box-shadow: 10px 10px 20px rgba($color: #000000, $alpha: 0.06);
+  box-shadow: 10px 10px 20px rgba($color: #000000, $alpha: 0.08);
   display: flex;
   justify-content: center;
   align-items: center;

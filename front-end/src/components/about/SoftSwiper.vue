@@ -56,7 +56,7 @@ export default {
   created() {
     this.observer = new IntersectionObserver(this.setActive, {
       root: null,
-      threshold: 1.0
+      threshold: 0.8
     });
   },
   mounted() {
