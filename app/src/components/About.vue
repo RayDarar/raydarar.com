@@ -15,11 +15,6 @@
     <div class="info-block hard-skills">
       <h3 class="info-block__title">{{ content["about_hard_title"] }}</h3>
       <div class="info-block__data">
-        <hard-container :title="content['about_hard_intro']">
-          <hard-item v-for="item in content['about_hard_intro_blocks']" :key="item" resize>
-            {{ item }}
-          </hard-item>
-        </hard-container>
         <hard-container :title="content['about_hard_blocks'][0]">
           <hard-item>HTML5</hard-item>
           <hard-item>CSS3</hard-item>
@@ -30,6 +25,7 @@
           <hard-item>Sass</hard-item>
           <hard-item>Node.js</hard-item>
           <hard-item>Express</hard-item>
+          <hard-item>Nest.js</hard-item>
           <hard-item>SQL</hard-item>
           <hard-item>MongoDB</hard-item>
           <hard-item>jQuery</hard-item>
