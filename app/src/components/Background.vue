@@ -23,6 +23,9 @@
 }
 
 $n: 400;
+$speedSmall: 100s;
+$speedMid: 150s;
+$speedBig: 200s;
 
 $shadows-small: multiple-box-shadow($n);
 $shadows-medium: multiple-box-shadow($n / 2);
@@ -52,15 +55,15 @@ $shadows-big: multiple-box-shadow($n / 3);
 }
 
 #stars-1 {
-  @include starsGeneral(1px, 50s, $shadows-small);
+  @include starsGeneral(1px, $speedSmall, $shadows-small);
 }
 
 #stars-2 {
-  @include starsGeneral(2px, 100s, $shadows-medium);
+  @include starsGeneral(2px, $speedMid, $shadows-medium);
 }
 
 #stars-3 {
-  @include starsGeneral(3px, 150s, $shadows-big);
+  @include starsGeneral(3px, $speedBig, $shadows-big);
 }
 
 @keyframes moveUp {
