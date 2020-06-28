@@ -7,44 +7,13 @@
       <div class="home-wrapper__profile-image">
         <img src="@/assets/soft-skills-image-1.jpg" alt="profile-image" />
       </div>
-      <span class="home-wrapper__name">{{ content.HOME_NAME }}</span>
-      <span class="home-wrapper__def">{{ content.HOME_SUB }}</span>
-      <div class="home-wrapper__icons-wrapper">
-        <img
-          class="icons-wrapper__icon"
-          src="@/assets/vk-icon.svg"
-          alt="vk-icon"
-          title="vk"
-          @click="goLink('https://vk.com/raydarar')"
-        />
-        <img
-          class="icons-wrapper__icon"
-          src="@/assets/github-icon.svg"
-          alt="github-icon"
-          title="github"
-          @click="goLink('https://github.com/RayDarar')"
-        />
-        <img
-          class="icons-wrapper__icon"
-          src="@/assets/instagram-icon.svg"
-          alt="instagram-icon"
-          title="instagram"
-          @click="goLink('https://www.instagram.com/raydarar/')"
-        />
-        <img
-          class="icons-wrapper__icon"
-          src="@/assets/gmail-icon.svg"
-          alt="gmail-icon"
-          title="gmail"
-          @click="goLink('https://mail.google.com/mail/?view=cm&fs=1&to=dfqgth400@gmail.com')"
-        />
-        <img
-          class="icons-wrapper__icon"
-          src="@/assets/steam-icon.svg"
-          alt="steam-icon"
-          title="steam"
-          @click="goLink('https://steamcommunity.com/id/RayDarar')"
-        />
+      <div class="home-wrapper__name">
+        <span class="name">{{ content.HOME_NAME }}</span>
+        <span class="description">{{ content.HOME_SUB }}</span>
+      </div>
+      <div class="home-wrapper__links">
+        <router-link class="link" to="/about-me">{{ content.NAV_ABOUT }}</router-link>
+        <router-link class="link" to="/contacts">{{ content.NAV_CONTACTS }}</router-link>
       </div>
     </div>
   </section>
@@ -59,7 +28,7 @@ export default {
   methods: {
     goLink(link) {
       window.open(link, "_blank");
-    }
+    },
   },
   computed: {
     content() {
@@ -67,16 +36,16 @@ export default {
     },
     isFirstOpen() {
       return this.$store.state.isFirstOpen;
-    }
+    },
   },
   watch: {
     content(n, o) {
       document.title = n.TITLE_HOME;
-    }
+    },
   },
   created() {
     document.title = this.content["TITLE_HOME"];
-  }
+  },
 };
 </script>
 
@@ -92,82 +61,79 @@ export default {
 }
 
 .home-wrapper {
-  background-color: rgba(255, 255, 255, 0.3);
-  width: 40%;
-  height: 70%;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 30%;
+  height: 60%;
   border-radius: 34px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   font-size: 1em;
-}
 
-.home-wrapper__profile-image {
-  margin-top: 2em;
-  border-radius: 50%;
-  width: 45%;
-  overflow: hidden;
-}
+  &__profile-image {
+    margin-top: 2em;
+    border-radius: 50%;
+    width: 45%;
+    overflow: hidden;
+  }
 
-.home-wrapper__profile-image > img {
-  max-width: 100%;
-  transition: transform 0.3s;
-  border-radius: 50%;
-}
+  &__profile-image > img {
+    max-width: 100%;
+    transition: transform 0.3s;
+    transform-origin: 50% 50%;
+    transform: scale(1.2);
+    border-radius: 50%;
+  }
 
-.home-wrapper__profile-image > img:hover {
-  transform: scale(1.5);
-  transform-origin: 50% 50%;
-}
+  &__profile-image > img:hover {
+    transform: scale(1.5);
+  }
 
-.home-wrapper__name {
-  font-size: 2.5em;
-  font-weight: bold;
-}
+  &__name {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    .name {
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+    .description {
+      font-size: 1.2em;
+      color: lightgray;
+    }
+  }
 
-.home-wrapper__def {
-  font-size: 1.5em;
-}
+  &__links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 65%;
+    justify-content: space-around;
 
-.home-wrapper__icons-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 65%;
-  justify-content: space-around;
-}
-
-.icons-wrapper__icon {
-  width: 34px;
-  cursor: pointer;
-  position: relative;
+    .link {
+      color: white;
+      font-size: 1.2em;
+    }
+  }
 }
 
 .icon {
   transition: transform 0.5s;
 }
 
-@media screen and (max-width: 1114px) {
+@media screen and (max-width: 1440px) {
   .home-wrapper {
-    width: 70%;
-    height: 75%;
+    width: 35%;
+    height: 60%;
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
   .home-wrapper {
     width: 85%;
     height: 75%;
-  }
-
-  .home-wrapper__name {
-    font-size: 2.6em;
-  }
-
-  .home-wrapper__def {
-    font-size: 1.3em;
   }
 }
 
@@ -176,23 +142,24 @@ export default {
     width: 100%;
     height: 80%;
     border-radius: 0px;
-  }
 
-  .home-wrapper__profile-image {
-    width: 60%;
-  }
+    &__profile-image {
+      width: 60%;
+    }
 
-  .home-wrapper__profile-image > img:hover {
-    transform: scale(1);
-  }
+    &__name {
+      .name {
+        font-size: 2.2em;
+      }
+      .description {
+        font-size: 1em;
+      }
+    }
 
-  .home-wrapper__def {
-    font-size: 1em;
-  }
-
-  .home-wrapper__icons-wrapper {
-    width: 90%;
-    justify-content: space-around;
+    &__icons-wrapper {
+      width: 90%;
+      justify-content: space-around;
+    }
   }
 
   .icons-wrapper__icon {
@@ -203,12 +170,13 @@ export default {
 }
 
 @media screen and (max-width: 340px) {
-  .home-wrapper__def {
-    font-size: 0.9em;
-  }
-
   .home-wrapper__name {
-    font-size: 2.3em;
+    .name {
+      font-size: 2.1em;
+    }
+    .description {
+      font-size: 0.9em;
+    }
   }
 }
 </style>
