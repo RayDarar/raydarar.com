@@ -14,15 +14,16 @@
 
 // n is number of stars required
 @function multiple-box-shadow($n) {
-  $value: "#{random(2000)}px #{random(2000)}px #fff";
+  $difference: 2000;
+  $value: "#{random($difference)}px #{random($difference)}px #fff";
   @for $i from 2 through $n {
-    $value: "#{$value} , #{random(2000)}px #{random(2000)}px #FFF";
+    $value: "#{$value} , #{random($difference)}px #{random($difference)}px #FFF";
   }
 
   @return unquote($value);
 }
 
-$n: 400;
+$n: 200;
 $speedSmall: 100s;
 $speedMid: 150s;
 $speedBig: 200s;
