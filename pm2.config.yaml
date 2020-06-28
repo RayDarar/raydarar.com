@@ -1,0 +1,7 @@
+apps:
+  - script: "index.js"
+    name: "production-app"
+    exec_mode: "cluster"
+    instances: "max"
+    env:
+      NODE_ENV: "production"

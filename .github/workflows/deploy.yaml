@@ -21,5 +21,8 @@ jobs:
             cd ~/ryspekov.life
             git pull origin master
             yarn install --frozen-lockfile
+            cd ./app
+            yarn install --frozen-lockfile
             yarn build
+            cd ..
             pm2 restart pm2.config.yaml --only production-app
