@@ -113,11 +113,12 @@ $mainColor3: #c24d2c;
     display: block;
     left: 0;
     top: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     position: absolute;
     z-index: -1;
     filter: blur(6px);
+    object-fit: cover;
   }
 
   &__title {
