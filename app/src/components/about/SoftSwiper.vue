@@ -18,51 +18,52 @@ export default {
   name: "SoftSwiper",
   mounted() {},
   components: {
-    SoftItem
+    SoftItem,
   },
   data() {
     return {
       items: [
         {
           index: 0,
-          isActive: false
+          isActive: false,
         },
         {
           index: 1,
-          isActive: false
+          isActive: false,
         },
         {
           index: 2,
-          isActive: false
+          isActive: false,
         },
         {
           index: 3,
-          isActive: false
-        }
+          isActive: false,
+        },
       ],
-      observer: null
+      observer: null,
     };
   },
   methods: {
     setActive(e) {
       this.items[+e[0].target.dataset.id].isActive = e[0].isIntersecting;
-    }
+    },
   },
   computed: {
     width() {
       return window.innerWidth;
-    }
-  },
-  created() {
-    this.observer = new IntersectionObserver(this.setActive, {
-      root: null,
-      threshold: 0.8
-    });
+    },
   },
   mounted() {
-    const elements = document.querySelectorAll(".swiper-slide[data-id]");
-    for (const el of elements) this.observer.observe(el);
-  }
+    if (this.width <= 530) {
+      this.observer = new IntersectionObserver(this.setActive, {
+        root: null,
+        threshold: 0.8,
+      });
+  
+      const elements = document.querySelectorAll(".swiper-slide[data-id]");
+      for (const el of elements) this.observer.observe(el);
+    }
+  },
 };
 </script>
 

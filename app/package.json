@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "mocha && vue-cli-service build",
-    "test": "mocha"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
     "core-js": "^3.4.4",

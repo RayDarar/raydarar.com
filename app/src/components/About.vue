@@ -6,6 +6,7 @@
     <header class="heading" v-if="$root.isProd">
       <h2 class="heading__title">{{ content["about_main_title"] }}</h2>
       <p class="heading__sub-title">{{ content["about_main_subtitle"] }}</p>
+      <img class="heading__background" src="@/assets/quote-bg.jpg" alt="red-cross photo">
     </header>
     <div class="info-block soft-skills" v-if="$root.isProd">
       <h3 class="info-block__title">{{ content["about_soft_title"] }}</h3>
@@ -14,11 +15,6 @@
     <div class="info-block hard-skills">
       <h3 class="info-block__title">{{ content["about_hard_title"] }}</h3>
       <div class="info-block__data">
-        <hard-container :title="content['about_hard_intro']">
-          <hard-item v-for="item in content['about_hard_intro_blocks']" :key="item" resize>
-            {{ item }}
-          </hard-item>
-        </hard-container>
         <hard-container :title="content['about_hard_blocks'][0]">
           <hard-item>HTML5</hard-item>
           <hard-item>CSS3</hard-item>
@@ -29,6 +25,7 @@
           <hard-item>Sass</hard-item>
           <hard-item>Node.js</hard-item>
           <hard-item>Express</hard-item>
+          <hard-item>Nest.js</hard-item>
           <hard-item>SQL</hard-item>
           <hard-item>MongoDB</hard-item>
           <hard-item>jQuery</hard-item>
@@ -112,19 +109,13 @@ $mainColor3: #c24d2c;
   justify-content: center;
   align-items: center;
 
-  &::after {
-    content: "";
+  &__background {
     display: block;
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
     position: absolute;
-    background-image: url("../assets/quote-bg.jpg");
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     z-index: -1;
     filter: blur(6px);
   }
