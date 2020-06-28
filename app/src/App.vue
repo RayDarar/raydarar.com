@@ -238,12 +238,12 @@ $mainColor3: #c24d2c;
 
 .slide-enter {
   opacity: 0;
-  transform: translateX(100%);
+  transform: translateY(100%);
 }
 
 .slide-leave-active {
   opacity: 0;
-  transform: translateX(-100%);
+  transform: translateY(-100%);
 }
 
 .nav-toggle-leave-active,
@@ -254,7 +254,7 @@ $mainColor3: #c24d2c;
 
 .fade-in {
   opacity: 0;
-  animation: fade-in 1.5s 1s ease-in-out forwards;
+  animation: fade-in 0.75s 1s ease-in-out forwards;
 }
 
 @keyframes fade-in {

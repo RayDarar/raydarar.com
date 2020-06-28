@@ -41,8 +41,8 @@ export default {
         {
           icon: "gmail-icon.svg",
           name: "Gmail",
-          value: "dfqgth400@gmail.com",
-          link: "https://mail.google.com/mail/?view=cm&fs=1&to=dfqgth400@gmail.com"
+          value: "ansar.ryspekov@gmail.com",
+          link: "https://mail.google.com/mail/?view=cm&fs=1&to=ansar.ryspekov@gmail.com"
         },
         {
           icon: "whatsapp-icon.svg",
@@ -67,12 +67,6 @@ export default {
           name: "Github",
           value: "@RayDarar",
           link: "https://github.com/RayDarar"
-        },
-        {
-          icon: "steam-icon.svg",
-          name: "Steam",
-          value: "cin>>RayDarar",
-          link: "https://steamcommunity.com/id/RayDarar"
         }
       ]
     };
