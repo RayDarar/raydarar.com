@@ -14,6 +14,7 @@
       <div class="home-wrapper__links">
         <router-link class="link" to="/about-me">{{ content.NAV_ABOUT }}</router-link>
         <router-link class="link" to="/contacts">{{ content.NAV_CONTACTS }}</router-link>
+        <a class="link" href="https://github.com/RayDarar">GitHub</a>
       </div>
     </div>
   </section>
@@ -62,7 +63,7 @@ export default {
 
 .home-wrapper {
   background-color: rgba(255, 255, 255, 0.1);
-  width: 30%;
+  width: 32%;
   height: 60%;
   border-radius: 34px;
 
@@ -109,7 +110,7 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 65%;
+    width: 70%;
     justify-content: space-around;
 
     .link {
@@ -156,16 +157,10 @@ export default {
       }
     }
 
-    &__icons-wrapper {
+    &__links {
       width: 90%;
       justify-content: space-around;
     }
-  }
-
-  .icons-wrapper__icon {
-    width: 30px;
-    cursor: pointer;
-    position: relative;
   }
 }
 
