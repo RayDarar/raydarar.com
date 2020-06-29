@@ -18,23 +18,23 @@ export default {
     {
       title: "My name is Ansar",
       text:
-        'I come from the beautiful city of Almaty, which literally translates as "Father of Apples". Since childhood, I dreamed of sky and stars, now goals and ideas have been added to these dreams.'
+        'I come from the beautiful city of Almaty, which literally translates as "Father of Apples". Since childhood, I dreamed of sky and stars, now goals and ideas have been added to these dreams.',
     },
     {
       title: "I'm an Engineer",
       text:
-        "While I conquer Computer Science, I like to engage in web development, game development, science and reading books."
+        "While I conquer Computer Science, I like to engage in web development, game development, science and reading books.",
     },
     {
       title: "Red Crescent",
       text:
-        "Such activity allows me to take a broader look at the world situation. I decided to become a part of this and acquire many useful skills after the tragic death of one wonderful person."
+        "After the tragic death of one wonderful person, I decided to become part of this movement. Such an activity allows me to take a broader look at the situation in the world and how to solve these problems.",
     },
     {
       title: "I think about ecology",
       text:
-        "The environmental situation on the planet is very scary, it is necessary to make decisions in this regard. With the small efforts of many, we can prevent a catastrophe."
-    }
+        "The environmental situation on the planet is very scary, it is necessary to make decisions in this regard. With the small efforts of many, we can prevent a catastrophe.",
+    },
   ],
   about_hard_title: "Interested in my technical skills?",
   about_hard_blocks: ["WEB", "Theory", "Experience", "Instruments"],
@@ -47,6 +47,6 @@ export default {
     "Responsive, Adaptive Sites",
     "Optimizations",
     "Write Scripts",
-    "And More Programming"
-  ]
+    "And More Programming",
+  ],
 };
