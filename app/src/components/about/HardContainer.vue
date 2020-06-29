@@ -24,6 +24,7 @@ $mainColor2: #707070;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1em;
 }
 
 .title {
