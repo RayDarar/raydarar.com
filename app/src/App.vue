@@ -202,6 +202,7 @@ $mainColor3: #c24d2c;
 }
 
 .explore-more {
+  z-index: 1;
   position: absolute;
   right: 6%;
   top: 4%;

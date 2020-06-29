@@ -6,7 +6,7 @@
     <header class="heading" v-if="$root.isProd">
       <h2 class="heading__title">{{ content["about_main_title"] }}</h2>
       <p class="heading__sub-title">{{ content["about_main_subtitle"] }}</p>
-      <img class="heading__background" src="@/assets/quote-bg.jpg" alt="red-cross photo">
+      <img class="heading__background" src="@/assets/quote-bg.jpg" alt="red-cross photo" />
     </header>
     <div class="info-block soft-skills" v-if="$root.isProd">
       <h3 class="info-block__title">{{ content["about_soft_title"] }}</h3>
@@ -59,6 +59,7 @@
           <hard-item>VS code</hard-item>
           <hard-item>VS</hard-item>
           <hard-item>Adobe XD</hard-item>
+          <hard-item>Figma</hard-item>
           <hard-item>Photoshop</hard-item>
           <hard-item>Windows</hard-item>
           <hard-item>Linux</hard-item>
@@ -78,21 +79,21 @@ export default {
   computed: {
     content() {
       return this.$store.state.language;
-    }
+    },
   },
   created() {
     document.title = this.content["TITLE_ABOUT"];
   },
   data() {
     return {
-      blocks: [0, 1, 2, 3]
+      blocks: [0, 1, 2, 3],
     };
   },
   components: {
     SoftSwiper,
     HardContainer,
-    HardItem
-  }
+    HardItem,
+  },
 };
 </script>
 
@@ -100,7 +101,6 @@ export default {
 $mainColor: #1a2639;
 $mainColor1: #d9dad7;
 $mainColor2: #707070;
-$mainColor3: #c24d2c;
 
 .heading {
   height: 100vh;
@@ -117,33 +117,47 @@ $mainColor3: #c24d2c;
     height: 100vh;
     position: absolute;
     z-index: -1;
-    filter: blur(6px);
     object-fit: cover;
   }
 
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    z-index: 0;
+  }
+
+  color: $mainColor1;
   &__title {
     font-size: 3em;
     margin: 1em;
+    z-index: 1;
   }
 
   &__sub-title {
     font-size: 2em;
-    color: $mainColor;
+    z-index: 2;
   }
 }
 
 .info-block {
   margin-top: 300px;
-  background-color: white;
+  background-color: whitesmoke;
 
   &__title {
     color: white;
-    background-color: $mainColor3;
+    background-color: $mainColor;
     font-size: 2em;
-    padding: 0.5em;
-    margin-top: 2em;
-    margin-bottom: 1em;
+    padding: 1em;
     text-align: center;
+  }
+
+  &__data {
+    margin: 0;
   }
 }
 
