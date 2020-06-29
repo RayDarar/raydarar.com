@@ -27,7 +27,7 @@ export default {
   computed: {
     content() {
       return this.$store.state.language;
-    }
+    },
   },
   data() {
     return {
@@ -36,66 +36,77 @@ export default {
           icon: "telegram-icon.svg",
           name: "Telegram",
           value: "@RayDarar",
-          link: "https://t.me/RayDarar"
+          link: "https://t.me/RayDarar",
         },
         {
           icon: "gmail-icon.svg",
           name: "Gmail",
           value: "ansar.ryspekov@gmail.com",
-          link: "https://mail.google.com/mail/?view=cm&fs=1&to=ansar.ryspekov@gmail.com"
+          link: "https://mail.google.com/mail/?view=cm&fs=1&to=ansar.ryspekov@gmail.com",
         },
         {
           icon: "whatsapp-icon.svg",
           name: "WhatsApp",
           value: "+7 (708) 614-46-72",
-          link: "https://api.whatsapp.com/send?phone=77086144672"
+          link: "https://api.whatsapp.com/send?phone=77086144672",
         },
         {
           icon: "instagram-icon.svg",
           name: "Instagram",
           value: "@RayDarar",
-          link: "https://www.instagram.com/raydarar/"
+          link: "https://www.instagram.com/raydarar/",
         },
         {
           icon: "vk-icon.svg",
           name: "VK",
           value: "@RayDarar",
-          link: "https://vk.com/raydarar"
+          link: "https://vk.com/raydarar",
         },
         {
           icon: "github-icon.svg",
           name: "Github",
           value: "@RayDarar",
-          link: "https://github.com/RayDarar"
-        }
-      ]
+          link: "https://github.com/RayDarar",
+        },
+      ],
     };
   },
   methods: {
     goLink(link) {
       window.open(link, "_blank");
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+$mainColor: #1a2639;
+$mainColor1: #d9dad7;
+$mainColor2: #707070;
+$mainColor3: #c24d2c;
+
+#contacts {
+  overflow: hidden;
+}
+
 .title-block {
-  background-color: #d9dad7;
+  background-color: $mainColor;
   margin-top: 5%;
   padding: 1em;
 }
 
 .title {
+  color: white;
   font-size: 2.2em;
   font-weight: normal;
-  margin-left: 5%;
+  text-align: center;
 }
 
 .content-block {
   margin: {
-    left: 6%;
-    top: 4%;
+    left: auto;
+    right: auto;
+    top: 5%
   }
   background-color: white;
   width: 30%;
@@ -104,7 +115,7 @@ export default {
 }
 
 .sub-title-block {
-  background-color: #c24d2c;
+  background-color: $mainColor;
   color: white;
   margin-top: 5%;
   padding: 1em;
@@ -170,6 +181,7 @@ export default {
   .content-block {
     width: 100%;
     height: 100%;
+    margin-top: 5%;
   }
 
   .card-icon {
