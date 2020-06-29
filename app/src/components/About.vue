@@ -66,6 +66,15 @@
         </hard-container>
       </div>
     </div>
+    <div
+      class="scroll-up"
+      :class="{
+        'scroll-up_visible': isScrollUpVisible,
+      }"
+      @click="scrollToTop"
+    >
+      <img src="@/assets/double_arrow_white.svg" alt="scroll-up arrow" />
+    </div>
   </section>
 </template>
 
@@ -73,6 +82,9 @@
 import SoftSwiper from "./about/SoftSwiper";
 import HardContainer from "./about/HardContainer";
 import HardItem from "./about/HardItem";
+
+const SCROLL_UP_HEIGHT = 100;
+const SCROLL_UP_FACTOR = 15;
 
 export default {
   name: "About",
@@ -84,15 +96,31 @@ export default {
   created() {
     document.title = this.content["TITLE_ABOUT"];
   },
+  mounted() {
+    this.$el.addEventListener("scroll", (e) => {
+      if (this.$el.scrollTop >= SCROLL_UP_HEIGHT) {
+        this.isScrollUpVisible = true;
+      } else this.isScrollUpVisible = false;
+    });
+  },
   data() {
     return {
       blocks: [0, 1, 2, 3],
+      isScrollUpVisible: false,
     };
   },
   components: {
     SoftSwiper,
     HardContainer,
     HardItem,
+  },
+  methods: {
+    scrollToTop() {
+      if (this.$el.scrollTop > 0) {
+        this.$el.scrollTop -= this.$el.scrollTop / SCROLL_UP_FACTOR;
+        requestAnimationFrame(this.scrollToTop);
+      }
+    },
   },
 };
 </script>
@@ -158,6 +186,37 @@ $mainColor2: #707070;
 
   &__data {
     margin: 0;
+  }
+}
+
+.scroll-up {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  z-index: 1;
+  transform: rotate(180deg);
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  background-color: #202020;
+  padding: 0.5em;
+  cursor: pointer;
+
+  $size: 50px;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+
+  &:hover {
+    transform: rotate(180deg) translateY(10%);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &_visible {
+    opacity: 1;
   }
 }
 
