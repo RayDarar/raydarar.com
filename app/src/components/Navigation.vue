@@ -68,6 +68,7 @@ export default {
       if (this.$route.path !== path) {
         this.$router.push(path);
         this.$store.commit("setTabIndex", index);
+        this.$emit("routed");
       }
     }
   }

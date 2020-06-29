@@ -1,7 +1,7 @@
 <template>
   <article class="root">
     <transition name="nav-toggle">
-      <navigation class="root__nav" v-show="isWrapped"></navigation>
+      <navigation class="root__nav" v-show="isWrapped" @routed="routed"></navigation>
     </transition>
     <transition :name="$root.isProd ? 'slide' : ''" mode="out-in">
       <keep-alive>
@@ -9,7 +9,7 @@
           :class="{
             root__component: !isWrapped,
             root__component_wrapped: isWrapped,
-            'fade-in': isFirstOpen && $root.isProd
+            'fade-in': isFirstOpen && $root.isProd,
           }"
         >
           <div
@@ -44,16 +44,18 @@
 import Nav from "@/components/Navigation";
 import Background from "@/components/Background";
 
+const WRAP_TIMEOUT = 500;
+
 export default {
   name: "App",
   components: {
     navigation: Nav,
-    Background
+    Background,
   },
   data() {
     return {
       isWrapped: false,
-      sliding: false
+      sliding: false,
     };
   },
   methods: {
@@ -62,7 +64,12 @@ export default {
         this.isWrapped = !this.isWrapped;
         this.$store.commit("closeFirstOpen");
       }
-    }
+    },
+    routed() {
+      setTimeout(() => {
+        this.isWrapped = false;
+      }, WRAP_TIMEOUT);
+    },
   },
   computed: {
     isFirstOpen() {
@@ -70,11 +77,11 @@ export default {
     },
     content() {
       return this.$store.state.language;
-    }
+    },
   },
   created() {
     if (navigator.language.includes("ru")) this.$store.commit("setLanguage", "ru");
-  }
+  },
 };
 </script>
 
