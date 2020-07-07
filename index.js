@@ -3,7 +3,6 @@ require("dotenv").config();
 const http = require("http");
 const express = require("express");
 const io = require("./socket");
-const bot = require("./bot");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,11 +31,10 @@ app.get("/api/metrics/users", (req, res) => {
 
 const server = http.createServer(app);
 io.configure(server);
-bot.start();
 
 server.listen(PORT, () => console.log(`Server runs at port ${PORT}`));
 
 process.on("SIGINT", () => {
   server.close();
-  bot.stop();
+  process.exit(0);
 });

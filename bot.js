@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const io = require("./socket");
 const Slimbot = require("slimbot");
 
@@ -16,11 +18,10 @@ bot.on("message", (message) => {
   }
 });
 
-module.exports = {
-  start() {
-    bot.startPolling();
-  },
-  stop() {
-    bot.stopPolling();
-  },
-};
+bot.startPolling();
+
+process.on("SIGINT", () => {
+  console.log("Stopping bot");
+  bot.stopPolling();
+  process.exit(0);
+});
