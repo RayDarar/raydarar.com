@@ -23,7 +23,7 @@ app.get("/api/health/sum", (req, res) => {
   });
 });
 
-app.get("/metrics/users", (req, res) => {
+app.get("/api/metrics/users", (req, res) => {
   res.send({
     result: io.getUsers(),
   });
