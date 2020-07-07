@@ -5,7 +5,3 @@ apps:
     instances: "1"
     env:
       NODE_ENV: "production"
-  - script: "bot.js"
-    name: "bot"
-    exec_mode: "fork"
-    instances: "1"
