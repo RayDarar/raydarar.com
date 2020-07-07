@@ -1,7 +1,11 @@
 <template>
   <article class="root">
     <transition name="nav-toggle">
-      <navigation class="root__nav" v-show="isWrapped" @routed="routed"></navigation>
+      <navigation
+        class="root__nav"
+        v-show="isWrapped"
+        @routed="routed"
+      ></navigation>
     </transition>
     <transition :name="$root.isProd ? 'slide' : ''" mode="out-in">
       <keep-alive>
@@ -60,7 +64,10 @@ export default {
   },
   methods: {
     wrap(e) {
-      if (e.target != this.$refs.overlay || (e.target == this.$refs.overlay && this.isWrapped)) {
+      if (
+        e.target != this.$refs.overlay ||
+        (e.target == this.$refs.overlay && this.isWrapped)
+      ) {
         this.isWrapped = !this.isWrapped;
         this.$store.commit("closeFirstOpen");
       }
@@ -80,7 +87,8 @@ export default {
     },
   },
   created() {
-    if (navigator.language.includes("ru")) this.$store.commit("setLanguage", "ru");
+    if (navigator.language.includes("ru"))
+      this.$store.commit("setLanguage", "ru");
   },
 };
 </script>
@@ -184,6 +192,7 @@ $mainColor3: #c24d2c;
 .overlay_hidden {
   opacity: 0;
   z-index: -1;
+  width: 0%;
 }
 
 .wrapper,
