@@ -1,7 +1,8 @@
 require("dotenv").config();
-const http = require("http");
 
+const http = require("http");
 const express = require("express");
+const io = require("./socket");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,14 +18,19 @@ app.get("/api/health", (req, res) => {
 
 app.get("/api/health/sum", (req, res) => {
   const { first, second } = req.query;
-  console.log(req.query);
-  
   res.send({
     result: parseInt(first) + parseInt(second),
   });
 });
 
+app.get("/metrics/users", (req, res) => {
+  res.send({
+    result: io.getUsers(),
+  });
+});
+
 const server = http.createServer(app);
+io.configure(server);
 
 server.listen(PORT, () => console.log(`Server runs at port ${PORT}`));
 
