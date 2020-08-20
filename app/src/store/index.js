@@ -1,15 +1,15 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import en from "./lang/en";
-import ru from "./lang/ru";
+import en from "@/lang/en";
+import ru from "@/lang/ru";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     tabIndex: 0,
-    language: en,
-    isFirstOpen: true
+    language: ru,
+    isFirstOpen: true,
   },
   mutations: {
     setActiveTab(state, index) {
@@ -25,13 +25,16 @@ export default new Vuex.Store({
     },
     closeFirstOpen(state) {
       state.isFirstOpen = false;
-    }
+    },
   },
-  actions: {},
-  modules: {},
+  actions: {
+    updateTitle({ state }, title) {
+      document.title = state.language[title];
+    },
+  },
   getters: {
     selectedLanguage(state) {
       return state.language == en ? "en" : "ru";
-    }
-  }
+    },
+  },
 });
