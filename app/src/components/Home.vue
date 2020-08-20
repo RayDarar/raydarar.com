@@ -12,8 +12,12 @@
         <span class="description">{{ content.HOME_SUB }}</span>
       </div>
       <div class="home-wrapper__links">
-        <router-link class="link" to="/about-me">{{ content.NAV_ABOUT }}</router-link>
-        <router-link class="link" to="/contacts">{{ content.NAV_CONTACTS }}</router-link>
+        <router-link class="link" to="/about-me">{{
+          content.NAV_ABOUT
+        }}</router-link>
+        <router-link class="link" to="/contacts">{{
+          content.NAV_CONTACTS
+        }}</router-link>
         <a class="link" href="https://github.com/RayDarar">GitHub</a>
       </div>
     </div>
@@ -23,14 +27,6 @@
 <script>
 export default {
   name: "Home",
-  data() {
-    return {};
-  },
-  methods: {
-    goLink(link) {
-      window.open(link, "_blank");
-    },
-  },
   computed: {
     content() {
       return this.$store.state.language;
@@ -38,14 +34,6 @@ export default {
     isFirstOpen() {
       return this.$store.state.isFirstOpen;
     },
-  },
-  watch: {
-    content(n, o) {
-      document.title = n.TITLE_HOME;
-    },
-  },
-  created() {
-    document.title = this.content["TITLE_HOME"];
   },
 };
 </script>

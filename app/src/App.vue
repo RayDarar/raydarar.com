@@ -88,8 +88,10 @@ export default {
     },
   },
   created() {
-    if (navigator.language.includes("ru"))
-      this.$store.commit("setLanguage", "ru");
+    this.$store.commit(
+      "setLanguage",
+      navigator.language.includes("ru") ? "ru" : "en"
+    );
   },
 };
 </script>

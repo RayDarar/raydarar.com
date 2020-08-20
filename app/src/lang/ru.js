@@ -2,6 +2,7 @@ export default {
   EXPLORE_MORE: "Узнать больше",
   TITLE_HOME: "Ryspekov | Главная",
   TITLE_ABOUT: "Ryspekov | Обо мне",
+  TITLE_CONTACTS: "Ryspekov | Контакты",
   HOME_NAME: "Рыспеков Ансар",
   HOME_SUB: "Программист | Человек науки",
   NAV_HOME: "Главная",

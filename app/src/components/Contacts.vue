@@ -12,9 +12,15 @@
       </div>
       <ul class="card-container">
         <li class="card" v-for="card in cards" :key="card.name">
-          <img :src="$root.getImgUrl(card.icon)" :alt="card.name" class="card-icon" />
+          <img
+            :src="$root.getImgUrl(card.icon)"
+            :alt="card.name"
+            class="card-icon"
+          />
           <span class="card-name">{{ card.name }}:</span>
-          <span class="card-value" @click="goLink(card.link)">{{ card.value }}</span>
+          <a class="card-value" :href="card.link" target="_blank">{{
+            card.value
+          }}</a>
         </li>
       </ul>
     </div>
@@ -42,7 +48,8 @@ export default {
           icon: "gmail-icon.svg",
           name: "Gmail",
           value: "ansar.ryspekov@gmail.com",
-          link: "https://mail.google.com/mail/?view=cm&fs=1&to=ansar.ryspekov@gmail.com",
+          link:
+            "https://mail.google.com/mail/?view=cm&fs=1&to=ansar.ryspekov@gmail.com",
         },
         {
           icon: "whatsapp-icon.svg",
@@ -59,7 +66,7 @@ export default {
         {
           icon: "vk-icon.svg",
           name: "VK",
-          value: "@RayDarar",
+          value: "RayDarar",
           link: "https://vk.com/raydarar",
         },
         {
@@ -68,13 +75,14 @@ export default {
           value: "@RayDarar",
           link: "https://github.com/RayDarar",
         },
+        {
+          icon: "linkedin_icon.svg",
+          name: "LinkedIn",
+          value: "RayDarar",
+          link: "https://www.linkedin.com/in/raydarar",
+        },
       ],
     };
-  },
-  methods: {
-    goLink(link) {
-      window.open(link, "_blank");
-    },
   },
 };
 </script>
@@ -106,7 +114,7 @@ $mainColor3: #c24d2c;
   margin: {
     left: auto;
     right: auto;
-    top: 5%
+    top: 5%;
   }
   background-color: white;
   width: 30%;
@@ -136,19 +144,23 @@ $mainColor3: #c24d2c;
   flex-direction: row;
   align-items: center;
   margin-top: 1.3em;
-}
-.card-icon {
-  width: 28px;
-}
-.card-name {
-  margin-left: 0.6em;
-  width: 22%;
-}
-.card-value {
-  justify-self: center;
-  cursor: pointer;
-  color: #1a2639;
-  margin-left: 0.6em;
+
+  &-icon {
+    width: 28px;
+  }
+
+  &-name {
+    margin-left: 0.6em;
+    width: 22%;
+  }
+
+  &-value {
+    justify-self: center;
+    cursor: pointer;
+    color: #1a2639;
+    margin-left: 0.6em;
+    text-decoration: none;
+  }
 }
 
 @media screen and (max-width: 1114px) {

@@ -1,13 +1,13 @@
 <template>
   <nav id="nav">
-    <li
-      v-for="route in routes"
-      :key="route.index"
+    <router-link
       class="link"
-      @click="routeTo(route.name, route.index)"
+      v-for="route in routes"
+      :to="route.name"
+      :key="route.index"
     >
       {{ content[route.content] }}
-    </li>
+    </router-link>
     <div class="link-wrapper">
       <span
         class="link"
@@ -34,19 +34,19 @@ export default {
         {
           index: 0,
           name: "/",
-          content: "NAV_HOME"
+          content: "NAV_HOME",
         },
         {
           index: 1,
           name: "/about-me",
-          content: "NAV_ABOUT"
+          content: "NAV_ABOUT",
         },
         {
           index: 4,
           name: "/contacts",
-          content: "NAV_CONTACTS"
-        }
-      ]
+          content: "NAV_CONTACTS",
+        },
+      ],
     };
   },
   computed: {
@@ -58,11 +58,13 @@ export default {
     },
     selectedLanguage() {
       return this.$store.getters.selectedLanguage;
-    }
+    },
   },
   methods: {
     setLanguage(lang) {
       this.$store.commit("setLanguage", lang);
+      const { title } = this.$router.currentRoute.meta;
+      this.$store.dispatch("updateTitle", title);
     },
     routeTo(path, index) {
       if (this.$route.path !== path) {
@@ -70,8 +72,8 @@ export default {
         this.$store.commit("setTabIndex", index);
         this.$emit("routed");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

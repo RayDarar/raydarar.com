@@ -93,9 +93,6 @@ export default {
       return this.$store.state.language;
     },
   },
-  created() {
-    document.title = this.content["TITLE_ABOUT"];
-  },
   mounted() {
     this.$el.addEventListener("scroll", (e) => {
       if (this.$el.scrollTop >= SCROLL_UP_HEIGHT) {
