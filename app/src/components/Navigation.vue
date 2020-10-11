@@ -135,7 +135,7 @@ export default {
     padding: 1em;
   }
 
-  #nav > li {
+  #nav > .link {
     grid-column: 1 / 2;
   }
 
