@@ -12,6 +12,8 @@ function parsePage(document = new Document()) {
     const priceNode = node.querySelector("span.price");
     priceNode.removeChild(priceNode.querySelector("span"));
 
+    const photoNode = node.querySelector("div.a-elem__picture img");
+
     cars.push({
       link: "https://kolesa.kz" + node.querySelector("a.list-link").href,
       title: node.querySelector("span.a-el-info-title > a").innerHTML.trim(),
@@ -27,9 +29,7 @@ function parsePage(document = new Document()) {
         .trim(),
       date: node.querySelector("span.date").innerHTML,
       carId: node.dataset.id,
-      photo: node
-        .querySelector("div.a-elem__picture img")
-        ?.src.replace("160x120", "750x470"),
+      photo: (photoNode || { src: "" }).src.replace("160x120", "750x470"),
     });
   }
 
