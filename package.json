@@ -18,8 +18,12 @@
   },
   "homepage": "https://github.com/RayDarar/ryspekov.kz#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "firebase": "^9.0.1",
+    "firebase-admin": "^9.11.1",
+    "jsdom": "16.4.0",
     "slimbot": "^4.8.0",
     "socket.io": "^2.3.0"
   }
