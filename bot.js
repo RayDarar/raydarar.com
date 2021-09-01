@@ -80,8 +80,6 @@ bot.on("message", (message) => {
   }
 });
 
-let intervalId = -1;
-
 async function fetchJob() {
   const jobTime = new Date().toUTCString();
   console.group("Job - " + jobTime);
@@ -199,6 +197,9 @@ ${car.description}
   console.groupEnd("Job - " + jobTime);
 }
 
+let intervalId = -1;
+let intervalId1 = -1;
+
 module.exports = {
   start() {
     bot.startPolling();
@@ -206,9 +207,14 @@ module.exports = {
       fetchJob,
       parseInt(process.env.JOB_INTERVAL) || 900000
     );
+
+    intervalId1 = setInterval(() => {
+      bot.sendMessage(337652876, "Bot health: ok!");
+    }, 1800000);
   },
   stop() {
     bot.stopPolling();
     clearInterval(intervalId);
+    clearInterval(intervalId1);
   },
 };
