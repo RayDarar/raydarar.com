@@ -10,9 +10,8 @@ async function kolesa_subscribe({ chat }) {
 
   const users = db.collection("users");
 
-  const {
-    docs: [user],
-  } = await users.get();
+  const { docs } = await users.get();
+  const user = docs.find((f) => f.data().chatId === id);
 
   if (user) {
     return bot.sendMessage(id, `Вы уже подписаны!`);
@@ -20,7 +19,7 @@ async function kolesa_subscribe({ chat }) {
 
   await users.add({
     chatId: id + "",
-    username,
+    username: username || "",
   });
 
   return bot.sendMessage(id, `Вы успешно подписаны!`);
@@ -31,9 +30,8 @@ async function kolesa_unsubscribe({ chat }) {
 
   const users = db.collection("users");
 
-  const {
-    docs: [user],
-  } = await users.get();
+  const { docs } = await users.get();
+  const user = docs.find((f) => f.data().chatId === id);
 
   if (!user) {
     return bot.sendMessage(id, `Вы не подписаны!`);
