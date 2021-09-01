@@ -42,6 +42,17 @@ async function kolesa_unsubscribe({ chat }) {
   return bot.sendMessage(id, `Вы успешно отписаны!`);
 }
 
+async function kolesa_total({ chat }) {
+  const { id } = chat;
+
+  const { docs } = await db.collection("cars").get();
+
+  return bot.sendMessage(
+    id,
+    `Количество зарегистрированных машин в базе: ${docs.length}`
+  );
+}
+
 function start({ chat }) {
   const { id, username } = chat;
 
@@ -68,6 +79,8 @@ bot.on("message", (message) => {
       return kolesa_subscribe(message);
     case "/kolesa_unsubscribe":
       return kolesa_unsubscribe(message);
+    case "/kolesa_total":
+      return kolesa_total(message);
     case "/start":
       return start(message);
     default:
