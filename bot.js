@@ -122,7 +122,7 @@ async function fetchJob() {
     const result = fetchedCars.find((f) => f.carId === car.data().carId);
     // delete
     if (!result) {
-      deletedNotifiers.push(result);
+      deletedNotifiers.push(car.data());
       batch.delete(car.ref);
     }
   }
@@ -190,7 +190,6 @@ ${car.description}
     }
   }
   console.timeEnd("Notifications");
-
 
   console.time("Batch commit");
   await batch.commit();
