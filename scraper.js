@@ -5,7 +5,8 @@ const url =
   "https://kolesa.kz/cars/almaty/?_sys-hasphoto=2&_txt_=Авто+501-502-503";
 
 function parsePage(document = new Document()) {
-  const nodes = document.querySelectorAll("div.row.vw-item.list-item.a-elem");
+  document.querySelector("div.vip-block-widget").remove();
+  const nodes = document.querySelectorAll("div.row.vw-item");
   const cars = [];
 
   for (const node of nodes) {
@@ -60,7 +61,7 @@ async function fetchCars() {
   const cars = [...parsePage(document).filter(pageFilter)];
 
   for (let i = 2; i <= pages; i++) {
-    await wait(1000);
+    await wait(800);
     const { data } = await axios.get(encodeURI(url + "&page=" + i));
 
     const {
