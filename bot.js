@@ -128,10 +128,6 @@ async function fetchJob() {
   }
   console.timeEnd("Condition loops");
 
-  console.time("Batch commit");
-  await batch.commit();
-  console.timeEnd("Batch commit");
-
   console.time("Users db fetch");
   const { docs: users } = await db.collection("users").get();
   console.timeEnd("Users db fetch");
@@ -194,6 +190,12 @@ ${car.description}
     }
   }
   console.timeEnd("Notifications");
+
+
+  console.time("Batch commit");
+  await batch.commit();
+  console.timeEnd("Batch commit");
+
   console.timeEnd("Overall Time");
   console.groupEnd("Job - " + jobTime);
 }
