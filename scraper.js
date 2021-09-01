@@ -4,6 +4,10 @@ const axios = require("axios").default;
 const url =
   "https://kolesa.kz/cars/almaty/?_sys-hasphoto=2&_txt_=Авто+501-502-503";
 
+const exceptions = (process.env.JOB_EXCEPTIONS || "")
+  .split(",")
+  .filter((f) => !!f);
+
 function parsePage(document = new Document()) {
   document.querySelector("div.vip-block-widget").remove();
   const nodes = document.querySelectorAll("div.row.vw-item");
@@ -71,7 +75,7 @@ async function fetchCars() {
     cars.push(...parsePage(document).filter(pageFilter));
   }
 
-  return cars;
+  return cars.filter((car) => !exceptions.includes(car.carId));
 }
 
 module.exports = {
