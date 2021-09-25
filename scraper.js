@@ -9,7 +9,9 @@ const exceptions = (process.env.JOB_EXCEPTIONS || "")
   .filter((f) => !!f);
 
 function parsePage(document = new Document()) {
-  document.querySelector("div.vip-block-widget").remove();
+  const vip = document.querySelector("div.vip-block-widget");
+  if (vip) vip.remove();
+
   const nodes = document.querySelectorAll("div.row.vw-item");
   const cars = [];
 
