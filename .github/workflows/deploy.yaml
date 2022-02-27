@@ -2,7 +2,7 @@ name: Node.js CD
 
 on:
   push:
-    branches: [temp]
+    branches: [master]
 
 jobs:
   deploy:
@@ -20,9 +20,6 @@ jobs:
           script: |
             cd ~/ryspekov.life
             git pull origin master
-            yarn install --frozen-lockfile
-            cd ./app
-            yarn install --frozen-lockfile
-            yarn build
-            cd ..
-            pm2 restart pm2.config.yaml
+            docker-compose down --remove-orphans
+            docker-compose build
+            docker-compose up -d
