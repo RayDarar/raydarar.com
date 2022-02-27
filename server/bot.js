@@ -1,6 +1,6 @@
 const io = require("./socket");
 const Slimbot = require("slimbot");
-const { db } = require("../firebase");
+const { db } = require("./firebase");
 const { fetchCars } = require("./scraper");
 
 const bot = new Slimbot(process.env.BOT_KEY);
