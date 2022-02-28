@@ -1,7 +1,0 @@
-apps:
-  - script: "index.js"
-    name: "production-app"
-    exec_mode: "fork"
-    instances: "1"
-    env:
-      NODE_ENV: "production"
