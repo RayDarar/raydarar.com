@@ -6,7 +6,11 @@
     <header class="heading" v-if="$root.isProd">
       <h2 class="heading__title">{{ content["about_main_title"] }}</h2>
       <p class="heading__sub-title">{{ content["about_main_subtitle"] }}</p>
-      <img class="heading__background" src="@/assets/quote-bg.jpg" alt="red-cross photo" />
+      <img
+        class="heading__background"
+        src="@/assets/quote-bg.jpg"
+        alt="red-cross photo"
+      />
     </header>
     <div class="info-block soft-skills" v-if="$root.isProd">
       <h3 class="info-block__title">{{ content["about_soft_title"] }}</h3>
@@ -19,9 +23,11 @@
           <hard-item>HTML5</hard-item>
           <hard-item>CSS3</hard-item>
           <hard-item>JS</hard-item>
+          <hard-item>TS</hard-item>
           <hard-item>AJAX</hard-item>
           <hard-item>Vue</hard-item>
           <hard-item>Vuex</hard-item>
+          <hard-item>React</hard-item>
           <hard-item>Sass</hard-item>
           <hard-item>Node.js</hard-item>
           <hard-item>Express</hard-item>
