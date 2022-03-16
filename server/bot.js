@@ -108,7 +108,6 @@ async function fetchJob() {
 
   const newNotifiers = [];
   const changedNotifiers = [];
-  const deletedNotifiers = [];
 
   console.time("Condition loops");
   for (const car of fetchedCars) {
@@ -127,14 +126,6 @@ async function fetchJob() {
     }
   }
 
-  for (const car of cars) {
-    const result = fetchedCars.find((f) => f.carId === car.data().carId);
-    // delete
-    if (!result) {
-      deletedNotifiers.push(car.data());
-      batch.delete(car.ref);
-    }
-  }
   console.timeEnd("Condition loops");
 
   console.time("Users db fetch");
@@ -179,20 +170,6 @@ ${car.link}
 ${car.description}
 
 ${car.link}
-            `,
-        parse_mode: "HTML",
-      });
-    }
-
-    for (const car of deletedNotifiers) {
-      bot.sendPhoto(chatId, car.photo, {
-        caption: `
-            <b>Объявление снято</b>
-
-Машина:     <u>${car.title}</u>
-Цена:           <u>${car.price.toLocaleString("ru")}</u>
-
-${car.description}
             `,
         parse_mode: "HTML",
       });
