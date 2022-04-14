@@ -5,4 +5,4 @@ COPY . .
 RUN yarn install --frozen-lockfile
 CMD [ "pm2-runtime", "index.js" ]
 EXPOSE 3000
-EXPOSE 8080
+EXPOSE 8081

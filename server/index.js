@@ -38,7 +38,7 @@ server.listen(PORT, () => console.log(`Server runs at port ${PORT}`));
 
 // Listen on a specific host via the HOST environment variable
 const host = "0.0.0.0";
-const port = 8080;
+const port = 8081;
 
 const cors_proxy = require("cors-anywhere");
 const proxyServer = cors_proxy
