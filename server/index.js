@@ -36,8 +36,24 @@ bot.start();
 
 server.listen(PORT, () => console.log(`Server runs at port ${PORT}`));
 
+// Listen on a specific host via the HOST environment variable
+const host = "0.0.0.0";
+const port = 8080;
+
+const cors_proxy = require("cors-anywhere");
+const proxyServer = cors_proxy
+  .createServer({
+    originWhitelist: [], // Allow all origins
+    requireHeader: ["origin", "x-requested-with"],
+    removeHeaders: ["cookie", "cookie2"],
+  })
+  .listen(port, host, function () {
+    console.log("Running CORS Anywhere on " + host + ":" + port);
+  });
+
 process.on("SIGINT", () => {
   server.close();
+  proxyServer.close();
   bot.stop();
   process.exit(0);
 });
