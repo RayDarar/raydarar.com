@@ -1,7 +1,7 @@
 const io = require("./socket");
 const Slimbot = require("slimbot");
-const { db } = require("./firebase");
-const { fetchCars } = require("./scraper");
+// const { db } = require("./firebase");
+// const { fetchCars } = require("./scraper");
 
 const bot = new Slimbot(process.env.BOT_KEY);
 
@@ -75,12 +75,12 @@ bot.on("message", (message) => {
       return metrics(message);
     case "/photo":
       return photo(message);
-    case "/kolesa_subscribe":
-      return kolesa_subscribe(message);
-    case "/kolesa_unsubscribe":
-      return kolesa_unsubscribe(message);
-    case "/kolesa_total":
-      return kolesa_total(message);
+    // case "/kolesa_subscribe":
+    //   return kolesa_subscribe(message);
+    // case "/kolesa_unsubscribe":
+    //   return kolesa_unsubscribe(message);
+    // case "/kolesa_total":
+    //   return kolesa_total(message);
     case "/start":
       return start(message);
     default:
@@ -185,24 +185,20 @@ ${car.link}
   console.groupEnd("Job - " + jobTime);
 }
 
-let intervalId = -1;
-let intervalId1 = -1;
+// let intervalId = -1;
+// let intervalId1 = -1;
 
 module.exports = {
   start() {
     bot.startPolling();
-    intervalId = setInterval(
-      fetchJob,
-      parseInt(process.env.JOB_INTERVAL) || 900000
-    );
-
-    intervalId1 = setInterval(() => {
-      bot.sendMessage(337652876, "Bot health: ok!");
-    }, 1800000);
+    // intervalId = setInterval(
+    //   fetchJob,
+    //   parseInt(process.env.JOB_INTERVAL) || 900000
+    // );
   },
   stop() {
     bot.stopPolling();
-    clearInterval(intervalId);
-    clearInterval(intervalId1);
+    // clearInterval(intervalId);
+    // clearInterval(intervalId1);
   },
 };
