@@ -22,9 +22,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
-front-end/src/config.js
 
 # Build
-public
 build
 dist

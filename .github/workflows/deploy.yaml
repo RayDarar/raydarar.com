@@ -1,8 +1,8 @@
-name: Node.js CD
+name: Deploy to DO Droplet
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   deploy:
@@ -18,7 +18,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd ~/ryspekov.life
+            cd ~/raydarar.com
             git pull origin master
             docker-compose down --remove-orphans
             docker-compose build
