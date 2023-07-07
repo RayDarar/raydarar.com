@@ -16,16 +16,10 @@ function photo({ chat }) {
   );
 }
 
-function metrics({ chat }) {
-  return bot.sendMessage(chat.id, `Users on the webpage: ${io.getUsers()}`);
-}
-
 bot.on("message", (message) => {
   const { text, chat } = message;
 
   switch (text) {
-    case "/metrics":
-      return metrics(message);
     case "/photo":
       return photo(message);
     case "/start":
