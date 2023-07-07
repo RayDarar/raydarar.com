@@ -2,7 +2,6 @@ require("dotenv").config();
 
 const http = require("http");
 const express = require("express");
-const io = require("./socket");
 const bot = require("./bot");
 
 const app = express();
@@ -24,14 +23,7 @@ app.get("/api/health/sum", (req, res) => {
   });
 });
 
-app.get("/api/metrics/users", (req, res) => {
-  res.send({
-    result: io.getUsers(),
-  });
-});
-
 const server = http.createServer(app);
-io.configure(server);
 bot.start();
 
 server.listen(PORT, () => console.log(`Server runs at port ${PORT}`));
