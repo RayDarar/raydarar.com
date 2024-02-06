@@ -1,5 +1,8 @@
 <template>
   <section id="home">
+    <slot name="overlay" />
+    <slot name="wrapper" />
+    <slot name="explore" />
     <div class="home-wrapper">
       <div class="home-wrapper__profile-image">
         <img src="@/assets/soft-skills-image-1.jpg" alt="profile-image" />
