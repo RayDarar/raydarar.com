@@ -52,24 +52,6 @@ export default {
             "https://mail.google.com/mail/?view=cm&fs=1&to=ansar.ryspekov@gmail.com",
         },
         {
-          icon: "whatsapp-icon.svg",
-          name: "WhatsApp",
-          value: "+7 (708) 614-46-72",
-          link: "https://api.whatsapp.com/send?phone=77086144672",
-        },
-        {
-          icon: "instagram-icon.svg",
-          name: "Instagram",
-          value: "@RayDarar",
-          link: "https://www.instagram.com/raydarar/",
-        },
-        {
-          icon: "vk-icon.svg",
-          name: "VK",
-          value: "RayDarar",
-          link: "https://vk.com/raydarar",
-        },
-        {
           icon: "github-icon.svg",
           name: "Github",
           value: "@RayDarar",

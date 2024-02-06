@@ -14,11 +14,6 @@ const router = new VueRouter({
       meta: { index: 0, title: "TITLE_HOME" },
     },
     {
-      path: "/about-me",
-      component: () => import("@/components/About"),
-      meta: { index: 1, title: "TITLE_ABOUT" },
-    },
-    {
       path: "/contacts",
       component: () => import("@/components/Contacts"),
       meta: { index: 2, title: "TITLE_CONTACTS" },

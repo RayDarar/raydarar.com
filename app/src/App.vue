@@ -47,7 +47,6 @@
 <script>
 import Nav from "@/components/Navigation";
 import Background from "@/components/Background";
-import { io } from "@/socket";
 
 const WRAP_TIMEOUT = 500;
 
