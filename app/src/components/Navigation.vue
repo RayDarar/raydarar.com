@@ -38,11 +38,6 @@ export default {
         },
         {
           index: 1,
-          name: "/about-me",
-          content: "NAV_ABOUT",
-        },
-        {
-          index: 4,
           name: "/contacts",
           content: "NAV_CONTACTS",
         },
